@@ -471,6 +471,7 @@ ul  { list-style: none; }
   border: 2px dashed var(--color-border);
   color: var(--color-text-dim);
 }
+.profile-avatar--5 { background: #6070d0; }
 
 /* -- Servers Visual -- */
 .servers-visual {
@@ -883,6 +884,7 @@ ul  { list-style: none; }
 .player-feature:nth-child(4) { transition-delay: .18s; }
 .player-feature:nth-child(5) { transition-delay: .24s; }
 .player-feature:nth-child(6) { transition-delay: .30s; }
+.player-feature:nth-child(7) { transition-delay: .36s; }
 
 .faq-item:nth-child(1) { transition-delay: 0s; }
 .faq-item:nth-child(2) { transition-delay: .06s; }
