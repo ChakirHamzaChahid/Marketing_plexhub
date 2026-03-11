@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlexHubTV — Vos serveurs Plex. Une seule interface.</title>
+  <meta name="description" content="Le client Plex ultime pour Android TV — multi-serveur, enrichissement IMDb, profils familiaux.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#accueil" class="header__logo">Plex<span>HubTV</span></a>
+      <nav class="header__nav" id="nav">
+        <a href="#accueil" class="header__link">Accueil</a>
+        <a href="#fonctionnalites" class="header__link">Fonctionnalités</a>
+        <a href="#iptv" class="header__link">IPTV</a>
+        <a href="#tarifs" class="header__link">Tarifs</a>
+        <a href="#faq" class="header__link">FAQ</a>
+        <a href="#telecharger" class="header__link header__link--cta">Télécharger</a>
+      </nav>
+      <button class="header__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="accueil">
+    <div class="container hero__inner">
+      <p class="hero__badge">Le client Plex ultime pour Android TV</p>
+      <h1 class="hero__title">Vos serveurs Plex.<br><span class="text-gradient">Une seule interface.</span></h1>
+      <p class="hero__subtitle">PlexHubTV réunit toutes vos bibliothèques Plex en une expérience fluide, pensée pour le grand écran.</p>
+      <p class="hero__tagline">Multi-serveur &bull; Enrichissement IMDb &bull; Profils familiaux</p>
+      <div class="hero__actions">
+        <a href="#telecharger" class="btn btn--primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+          Télécharger sur Google Play
+        </a>
+        <a href="#fonctionnalites" class="btn btn--secondary">Découvrir les fonctionnalités</a>
+      </div>
+    </div>
+    <div class="hero__glow"></div>
+  </section>
+
+  <!-- ========== VUE D'ENSEMBLE ========== -->
+  <section class="section" id="overview">
+    <div class="container">
+      <span class="section__label">Vue d'ensemble</span>
+      <h2 class="section__title">Tout ce que Plex devrait être<br><span class="text-gradient">sur votre TV.</span></h2>
+      <p class="section__text">PlexHubTV transforme votre expérience Android TV en connectant tous vos serveurs Plex dans une bibliothèque unifiée. Naviguez entre vos films, séries et musiques avec une interface inspirée de Netflix, optimisée pour la télécommande. Plus besoin de jongler entre les serveurs — tout est accessible en un clic, depuis votre canapé.</p>
+    </div>
+  </section>
+
+  <!-- ========== FONCTIONNALITÉS ========== -->
+  <section class="section section--dark" id="fonctionnalites">
+    <div class="container">
+      <span class="section__label">Fonctionnalités</span>
+      <h2 class="section__title">Conçu pour les passionnés.<br><span class="text-gradient">Pensé pour tous.</span></h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">📚</div>
+          <h3 class="feature-card__title">Bibliothèque unifiée</h3>
+          <p class="feature-card__text">Une bibliothèque. Tous vos serveurs. Accédez à l'ensemble de vos médias depuis une interface unique, sans changer de source.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🎬</div>
+          <h3 class="feature-card__title">Interface Netflix</h3>
+          <p class="feature-card__text">Conçu pour le grand écran. Navigation horizontale fluide, catégories intelligentes et focus optimisé pour la télécommande.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">⚙️</div>
+          <h3 class="feature-card__title">Double moteur de lecture</h3>
+          <p class="feature-card__text">Deux moteurs. Zéro fichier injouable. ExoPlayer et libVLC combinés pour lire absolument tous vos fichiers sans transcodage.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">👨‍👩‍👧‍👦</div>
+          <h3 class="feature-card__title">Profils familiaux</h3>
+          <p class="feature-card__text">Chaque membre a son espace. Historique, préférences et contrôle parental individualisés pour toute la famille.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">⭐</div>
+          <h3 class="feature-card__title">Enrichissement automatique</h3>
+          <p class="feature-card__text">Notes IMDb et TMDb affichées directement sur vos contenus. Décidez en un coup d'œil quoi regarder ce soir.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">📡</div>
+          <h3 class="feature-card__title">IPTV intégré</h3>
+          <p class="feature-card__text">Vos chaînes IPTV et flux en direct accessibles directement dans PlexHubTV, aux côtés de vos contenus Plex.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">📥</div>
+          <h3 class="feature-card__title">Lecture hors ligne</h3>
+          <p class="feature-card__text">Téléchargez vos contenus pour les regarder sans connexion. Parfait pour les voyages ou les connexions instables.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🎨</div>
+          <h3 class="feature-card__title">Personnalisation poussée</h3>
+          <p class="feature-card__text">Thèmes, disposition des sections, ordre des bibliothèques — façonnez votre interface exactement comme vous le souhaitez.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LECTEUR VIDÉO ========== -->
+  <section class="section" id="lecteur">
+    <div class="container">
+      <span class="section__label">Lecteur vidéo</span>
+      <h2 class="section__title">Un lecteur à la hauteur<br><span class="text-gradient">de vos fichiers.</span></h2>
+      <p class="section__text">PlexHubTV embarque un lecteur vidéo complet, pensé pour les utilisateurs exigeants et les bibliothèques les plus variées.</p>
+      <div class="player-features">
+        <div class="player-feature">
+          <span class="player-feature__icon">▶️</span>
+          <div>
+            <strong>Reprise automatique</strong>
+            <p>Reprenez exactement là où vous vous êtes arrêté, sur n'importe quel appareil.</p>
+          </div>
+        </div>
+        <div class="player-feature">
+          <span class="player-feature__icon">⏭️</span>
+          <div>
+            <strong>Saut d'intro & épisode suivant</strong>
+            <p>Passez les intros en un clic et enchaînez les épisodes automatiquement.</p>
+          </div>
+        </div>
+        <div class="player-feature">
+          <span class="player-feature__icon">📑</span>
+          <div>
+            <strong>Chapitres</strong>
+            <p>Naviguez facilement entre les scènes grâce à la prise en charge des chapitres intégrés.</p>
+          </div>
+        </div>
+        <div class="player-feature">
+          <span class="player-feature__icon">🔊</span>
+          <div>
+            <strong>Multi-pistes audio & sous-titres</strong>
+            <p>Changez de langue audio ou de sous-titres à la volée, sans interrompre la lecture.</p>
+          </div>
+        </div>
+        <div class="player-feature">
+          <span class="player-feature__icon">📊</span>
+          <div>
+            <strong>Overlay statistiques</strong>
+            <p>Affichez les informations techniques en temps réel : codec, bitrate, résolution, buffer.</p>
+          </div>
+        </div>
+        <div class="player-feature">
+          <span class="player-feature__icon">🎚️</span>
+          <div>
+            <strong>Choix de la qualité</strong>
+            <p>Sélectionnez manuellement la qualité de streaming ou laissez l'adaptation automatique gérer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROFILS & CONTRÔLE PARENTAL ========== -->
+  <section class="section section--dark" id="profils">
+    <div class="container section--split">
+      <div class="section--split__text">
+        <span class="section__label">Profils</span>
+        <h2 class="section__title">Un profil pour chacun.<br><span class="text-gradient">Le contrôle pour les parents.</span></h2>
+        <p class="section__text">Créez des profils individuels pour chaque membre de la famille. Chacun retrouve son historique, ses favoris et ses recommandations. Activez le contrôle parental pour restreindre l'accès aux contenus sensibles et définissez un code PIN pour protéger les profils adultes. Simple, sûr, familial.</p>
+      </div>
+      <div class="section--split__visual">
+        <div class="profile-visual">
+          <div class="profile-avatar profile-avatar--1">P</div>
+          <div class="profile-avatar profile-avatar--2">M</div>
+          <div class="profile-avatar profile-avatar--3">K</div>
+          <div class="profile-avatar profile-avatar--4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.1 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.1 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MULTI-SERVEUR ========== -->
+  <section class="section" id="multi-serveur">
+    <div class="container section--split section--split--reverse">
+      <div class="section--split__text">
+        <span class="section__label">Multi-serveur</span>
+        <h2 class="section__title">Plusieurs serveurs.<br><span class="text-gradient">Zéro friction.</span></h2>
+        <p class="section__text">Connectez autant de serveurs Plex que vous le souhaitez — personnels, partagés ou distants. PlexHubTV fusionne intelligemment toutes vos bibliothèques pour vous offrir une vue unifiée. Vous naviguez dans un seul catalogue, peu importe d'où viennent vos contenus. Fini les allers-retours entre les sources.</p>
+      </div>
+      <div class="section--split__visual">
+        <div class="servers-visual">
+          <div class="server-node server-node--1">
+            <span>Serveur 1</span>
+            <small>Local</small>
+          </div>
+          <div class="server-node server-node--2">
+            <span>Serveur 2</span>
+            <small>Distant</small>
+          </div>
+          <div class="server-node server-node--3">
+            <span>Serveur 3</span>
+            <small>Partagé</small>
+          </div>
+          <div class="server-hub">PlexHubTV</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== IPTV ========== -->
+  <section class="section section--dark" id="iptv">
+    <div class="container section--split">
+      <div class="section--split__text">
+        <span class="section__label">IPTV & TV en direct</span>
+        <h2 class="section__title">Plex + IPTV.<br><span class="text-gradient">Enfin réunis.</span></h2>
+        <p class="section__text">Intégrez vos playlists M3U et vos flux IPTV directement dans PlexHubTV. Regardez la TV en direct, accédez au guide des programmes et zappez entre vos chaînes sans quitter l'application. Toute votre consommation vidéo — VOD et live — dans un seul hub, sur votre téléviseur.</p>
+      </div>
+      <div class="section--split__visual">
+        <div class="iptv-visual">
+          <div class="iptv-channel">
+            <div class="iptv-channel__bar"></div>
+            <span>Canal+</span>
+          </div>
+          <div class="iptv-channel iptv-channel--active">
+            <div class="iptv-channel__bar"></div>
+            <span>beIN Sports</span>
+          </div>
+          <div class="iptv-channel">
+            <div class="iptv-channel__bar"></div>
+            <span>Arte</span>
+          </div>
+          <div class="iptv-channel">
+            <div class="iptv-channel__bar"></div>
+            <span>France 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ENRICHISSEMENT MÉTADONNÉES ========== -->
+  <section class="section" id="metadonnees">
+    <div class="container">
+      <span class="section__label">Métadonnées</span>
+      <h2 class="section__title">Des métadonnées enrichies.<br><span class="text-gradient">Automatiquement.</span></h2>
+      <p class="section__text">PlexHubTV enrichit automatiquement vos contenus avec les notes IMDb et TMDb, les bandes-annonces, les castings complets et les recommandations associées. Chaque film et chaque série bénéficient d'une fiche détaillée digne d'un véritable service de streaming, sans aucune configuration manuelle.</p>
+      <div class="metadata-badges">
+        <div class="metadata-badge">
+          <span class="metadata-badge__score">8.7</span>
+          <span class="metadata-badge__source">IMDb</span>
+        </div>
+        <div class="metadata-badge">
+          <span class="metadata-badge__score">92%</span>
+          <span class="metadata-badge__source">TMDb</span>
+        </div>
+        <div class="metadata-badge metadata-badge--text">
+          <span>Bandes-annonces</span>
+        </div>
+        <div class="metadata-badge metadata-badge--text">
+          <span>Casting</span>
+        </div>
+        <div class="metadata-badge metadata-badge--text">
+          <span>Recommandations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPATIBILITÉ ANDROID TV ========== -->
+  <section class="section section--dark" id="compatibilite">
+    <div class="container">
+      <span class="section__label">Compatibilité</span>
+      <h2 class="section__title">Pensé pour Android TV.<br><span class="text-gradient">Natif.</span></h2>
+      <p class="section__text">PlexHubTV n'est pas un portage mobile. C'est une application native Android TV, conçue dès le départ pour les téléviseurs et les boîtiers.</p>
+      <ul class="compat-list">
+        <li>Navigation complète à la télécommande (D-pad)</li>
+        <li>Compatible Nvidia Shield, Chromecast avec Google TV, Xiaomi Mi Box, Fire TV Stick</li>
+        <li>Leanback Launcher intégré</li>
+        <li>Recommandations sur l'écran d'accueil Android TV</li>
+        <li>Support des gamepads et claviers Bluetooth</li>
+        <li>Mode picture-in-picture</li>
+        <li>Optimisé pour les résolutions 1080p et 4K</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SPECS TECHNIQUES ========== -->
+  <section class="section" id="specs">
+    <div class="container">
+      <span class="section__label">Technique</span>
+      <h2 class="section__title">Sous le capot.</h2>
+      <div class="specs-table-wrapper">
+        <table class="specs-table">
+          <tbody>
+            <tr><td>Android minimum</td><td>Android 7.0 (API 24)</td></tr>
+            <tr><td>Moteurs de lecture</td><td>ExoPlayer + libVLC</td></tr>
+            <tr><td>Codecs vidéo</td><td>H.264, H.265/HEVC, VP9, AV1, MPEG-4</td></tr>
+            <tr><td>Codecs audio</td><td>AAC, AC3, EAC3, DTS, TrueHD, FLAC, Opus</td></tr>
+            <tr><td>Streaming</td><td>Direct Play, Direct Stream, Transcodage</td></tr>
+            <tr><td>Backends</td><td>Plex Media Server (multi-serveur)</td></tr>
+            <tr><td>APIs externes</td><td>IMDb, TMDb, OMDB, Fanart.tv</td></tr>
+            <tr><td>Architecture</td><td>MVVM + Clean Architecture</td></tr>
+            <tr><td>Synchronisation</td><td>Watchlist, progression, profils cross-device</td></tr>
+            <tr><td>Thèmes</td><td>Sombre (défaut), personnalisable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPARATIF ========== -->
+  <section class="section section--dark" id="comparatif">
+    <div class="container">
+      <span class="section__label">Comparatif</span>
+      <h2 class="section__title">Pourquoi PlexHubTV plutôt que<br><span class="text-gradient">l'app officielle ?</span></h2>
+      <div class="specs-table-wrapper">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Fonctionnalité</th>
+              <th class="compare-table__highlight">PlexHubTV</th>
+              <th>App Plex officielle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Bibliothèque multi-serveur unifiée</td><td class="compare-table__highlight">✅</td><td>❌</td></tr>
+            <tr><td>Interface Netflix pour TV</td><td class="compare-table__highlight">✅</td><td>Partielle</td></tr>
+            <tr><td>Double moteur (ExoPlayer + VLC)</td><td class="compare-table__highlight">✅</td><td>❌</td></tr>
+            <tr><td>Notes IMDb / TMDb intégrées</td><td class="compare-table__highlight">✅</td><td>❌</td></tr>
+            <tr><td>IPTV & TV en direct (M3U)</td><td class="compare-table__highlight">✅</td><td>❌</td></tr>
+            <tr><td>Profils familiaux avec PIN</td><td class="compare-table__highlight">✅</td><td>Basique</td></tr>
+            <tr><td>Personnalisation de l'interface</td><td class="compare-table__highlight">✅</td><td>❌</td></tr>
+            <tr><td>Lecture hors ligne</td><td class="compare-table__highlight">✅</td><td>✅ (Plex Pass)</td></tr>
+            <tr><td>Saut d'intro automatique</td><td class="compare-table__highlight">✅</td><td>✅ (Plex Pass)</td></tr>
+            <tr><td>Overlay statistiques</td><td class="compare-table__highlight">✅</td><td>❌</td></tr>
+            <tr><td>Gratuit</td><td class="compare-table__highlight">✅</td><td>Freemium</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TARIFS (placeholder) ========== -->
+  <section class="section" id="tarifs">
+    <div class="container">
+      <span class="section__label">Tarifs</span>
+      <h2 class="section__title">Simple et transparent.</h2>
+      <p class="section__text">Détails des tarifs à venir. PlexHubTV est actuellement disponible gratuitement sur le Google Play Store.</p>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section section--dark" id="faq">
+    <div class="container">
+      <span class="section__label">FAQ</span>
+      <h2 class="section__title">Questions fréquentes.</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            PlexHubTV est-il gratuit ?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Oui, PlexHubTV est disponible gratuitement sur le Google Play Store pour Android TV. Aucun abonnement Plex Pass n'est requis pour les fonctionnalités de base.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Ai-je besoin d'un serveur Plex ?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Oui, PlexHubTV est un client qui se connecte à un ou plusieurs serveurs Plex Media Server. Vous devez disposer d'au moins un serveur Plex accessible pour utiliser l'application.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Quels appareils sont compatibles ?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>PlexHubTV est compatible avec tous les appareils Android TV sous Android 7.0 ou supérieur, incluant les Nvidia Shield, Chromecast avec Google TV, Xiaomi Mi Box et Amazon Fire TV Stick.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Puis-je utiliser mes playlists IPTV ?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Absolument. PlexHubTV prend en charge les playlists au format M3U. Importez vos listes de chaînes IPTV et regardez la TV en direct directement dans l'application.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Comment fonctionne le multi-serveur ?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Ajoutez simplement vos différents serveurs Plex dans les paramètres. PlexHubTV fusionne automatiquement les bibliothèques pour vous offrir une vue unifiée de tous vos contenus, quel que soit le serveur d'origine.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL ========== -->
+  <section class="section cta-final" id="telecharger">
+    <div class="container">
+      <h2 class="section__title">Prêt à redécouvrir<br><span class="text-gradient">votre bibliothèque ?</span></h2>
+      <p class="section__text">PlexHubTV est disponible gratuitement sur Android TV.</p>
+      <a href="#" class="btn btn--primary btn--large">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+        Télécharger maintenant
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#accueil" class="header__logo">Plex<span>HubTV</span></a>
+      <p class="footer__copy">&copy; 2026 PlexHubTV. Tous droits réservés. Plex est une marque déposée de Plex, Inc.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== Smooth scroll ===== */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 72;
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
+        }
+        /* Close mobile nav */
+        document.getElementById('nav').classList.remove('header__nav--open');
+        document.getElementById('burger').classList.remove('header__burger--open');
+      });
+    });
+
+    /* ===== Sticky header shadow ===== */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('header--scrolled', window.scrollY > 20);
+    });
+
+    /* ===== Mobile burger ===== */
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('header__nav--open');
+      burger.classList.toggle('header__burger--open');
+    });
+
+    /* ===== FAQ accordion ===== */
+    document.querySelectorAll('.faq-item__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('faq-item--open');
+        /* Close all */
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-item--open'));
+        document.querySelectorAll('.faq-item__question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        /* Toggle current */
+        if (!isOpen) {
+          item.classList.add('faq-item--open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ===== Scroll reveal ===== */
+    const revealElements = document.querySelectorAll('.feature-card, .player-feature, .faq-item, .section--split__visual, .metadata-badges');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
