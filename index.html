@@ -48,6 +48,21 @@
     <div class="hero__glow"></div>
   </section>
 
+  <!-- ========== DÉMO ========== -->
+  <section class="section section--dark" id="demo">
+    <div class="container demo-section">
+      <span class="section__label">Démo</span>
+      <h2 class="section__title">Voyez PlexHubTV<br><span class="text-gradient">en action.</span></h2>
+      <p class="section__text">Découvrez l'interface, la navigation et les fonctionnalités en quelques secondes.</p>
+      <div class="demo-video-wrapper">
+        <video class="demo-video" controls playsinline preload="metadata" poster="">
+          <source src="Screen_recording_20260312_102054 (1).webm" type="video/webm">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== VUE D'ENSEMBLE ========== -->
   <section class="section" id="overview">
     <div class="container">
@@ -482,7 +497,7 @@
     });
 
     /* ===== Scroll reveal ===== */
-    const revealElements = document.querySelectorAll('.feature-card, .player-feature, .faq-item, .section--split__visual, .metadata-badges');
+    const revealElements = document.querySelectorAll('.feature-card, .player-feature, .faq-item, .section--split__visual, .metadata-badges, .demo-video-wrapper');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
