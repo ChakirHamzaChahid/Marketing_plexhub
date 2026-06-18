@@ -14,8 +14,10 @@ Déployé sur [www.plexhubtv.uk](https://www.plexhubtv.uk) via GitHub Pages (CNA
 ├── sitemap.xml                         ← SEO
 ├── CNAME                               ← www.plexhubtv.uk
 ├── Screen_recording_*.webm             ← Démo vidéo intégrée dans la section #demo
+├── og-image.png                        ← Open Graph 1200×630 (partage social)
 └── docs/
-    └── marketing-plan-2026-06-18.md    ← Plan de refonte de la landing (diagnostic + copy)
+    ├── marketing-plan-2026-06-18.md    ← Plan de refonte de la landing (diagnostic + copy)
+    └── announcements-2026-06-18.md     ← Brouillons d'annonces Reddit (r/PlexAndroidTV, r/jellyfin, etc.)
 ```
 
 ## Stack
@@ -29,7 +31,7 @@ HTML/CSS vanilla, zéro framework, zéro build step. Inter via Google Fonts.
 
 ## TODO restant
 
-- Créer `og-image.png` (1200×630) pour le partage social — capture maison du Home PlexHubTV avec wordmark, à placer à la racine du repo.
+- Remplacer `og-image.png` (mockup stylisé v1) par une vraie capture du Home PlexHubTV quand la dernière passe UI sera prête.
 - Quand donations actives : retirer le `disabled` du bouton `#soutenir` + brancher l'URL.
 - Quand Play Store live : remplacer les mentions « Bientôt sur Google Play » par le badge officiel.
 
