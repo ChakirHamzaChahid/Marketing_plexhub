@@ -9,16 +9,32 @@ Déployé sur [www.plexhubtv.uk](https://www.plexhubtv.uk) via GitHub Pages (CNA
 ```
 .
 ├── index.html                          ← Landing principale (FR)
-├── style.css                           ← Design system dark + composants
+├── en/
+│   └── index.html                      ← Version anglaise (assets partagés via ../)
+├── style.css                           ← Design system dark + composants (partagé FR/EN)
 ├── robots.txt                          ← SEO
-├── sitemap.xml                         ← SEO
+├── sitemap.xml                         ← SEO multilingue (hreflang xhtml:link)
 ├── CNAME                               ← www.plexhubtv.uk
 ├── Screen_recording_*.webm             ← Démo vidéo intégrée dans la section #demo
-├── og-image.png                        ← Open Graph 1200×630 (partage social)
+├── og-image.png                        ← Open Graph FR 1200×630
+├── og-image-en.png                     ← Open Graph EN 1200×630
+├── favicon.{ico,svg}                   ← Favicons multi-format
+├── favicon-{16,32}x{16,32}.png         ← Favicons PNG
+├── apple-touch-icon.png                ← iOS Safari (180×180)
+├── android-chrome-{192,512}x{192,512}.png ← PWA Android
+├── site.webmanifest                    ← PWA manifest
 └── docs/
     ├── marketing-plan-2026-06-18.md    ← Plan de refonte de la landing (diagnostic + copy)
     └── announcements-2026-06-18.md     ← Brouillons d'annonces Reddit (r/PlexAndroidTV, r/jellyfin, etc.)
 ```
+
+## Multilingue
+
+- Architecture deux pages : `/` (FR) + `/en/` (EN), aucun framework, zéro JS de translation.
+- `hreflang` réciproque + `x-default → FR` dans chaque `<head>` et dans `sitemap.xml`.
+- Toggle FR|EN dans le header des deux versions, navigation par URL (pas de cookie / localStorage).
+- Assets partagés (CSS, vidéo, favicon) référencés depuis `/en/` via `../path`.
+- OG image dédiée par langue (`og-image.png` / `og-image-en.png`).
 
 ## Stack
 

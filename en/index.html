@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlexHubTV — All your Plex servers, Jellyfin and IPTV merged on Android TV</title>
+
+  <meta name="description" content="PlexHubTV merges your multiple Plex servers, Jellyfin and IPTV/Xtream streams into a single library. A movie present on several sources stays one entry, with source picker at playback. PIN profiles, AI subtitles, Skip Intro, Live TV with EPG. Free.">
+  <meta name="keywords" content="plex multi server android tv, plex jellyfin aggregation, plex jellyfin single client, iptv android tv, xtream android tv, merge plex libraries, multi source tv client, best plex client android tv">
+  <meta name="author" content="PlexHubTV">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <link rel="canonical" href="https://www.plexhubtv.uk/en/">
+  <link rel="alternate" hreflang="fr" href="https://www.plexhubtv.uk/">
+  <link rel="alternate" hreflang="en" href="https://www.plexhubtv.uk/en/">
+  <link rel="alternate" hreflang="x-default" href="https://www.plexhubtv.uk/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:url" content="https://www.plexhubtv.uk/en/">
+  <meta property="og:title" content="PlexHubTV — All your Plex servers, Jellyfin and IPTV merged">
+  <meta property="og:description" content="One library for all your Plex servers, Jellyfin and IPTV streams. A movie on several sources = one entry, with source picker at playback.">
+  <meta property="og:site_name" content="PlexHubTV">
+  <meta property="og:image" content="https://www.plexhubtv.uk/og-image-en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PlexHubTV — Android TV interface with cross-source aggregation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PlexHubTV — Plex, Jellyfin and IPTV merged on Android TV">
+  <meta name="twitter:description" content="All your Plex servers, Jellyfin and IPTV streams in one library. One movie, one entry, source picker at playback.">
+  <meta name="twitter:image" content="https://www.plexhubtv.uk/og-image-en.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PlexHubTV",
+    "operatingSystem": "Android TV 8.0+",
+    "applicationCategory": "MultimediaApplication",
+    "description": "Unified Android TV client for multi-server Plex, Jellyfin and IPTV/Xtream with cross-source aggregation. A movie present on multiple servers stays a single entry, with source picker at playback. Dual playback engine, PIN profiles, AI subtitles, multi-provider Skip Intro, Live TV EPG, Trakt sync, OTA self-update.",
+    "softwareVersion": "1.0.26",
+    "downloadUrl": "https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Chakir Hamza Chahid"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#accueil" class="header__logo">Plex<span>HubTV</span></a>
+      <nav class="header__nav" id="nav">
+        <a href="#accueil" class="header__link">Home</a>
+        <a href="#aggregation" class="header__link">Aggregation</a>
+        <a href="#features" class="header__link">Features</a>
+        <a href="#live-tv" class="header__link">Live TV</a>
+        <a href="#download" class="header__link">Download</a>
+        <a href="#support" class="header__link">Support</a>
+        <a href="#faq" class="header__link">FAQ</a>
+        <div class="header__lang" role="group" aria-label="Language selector">
+          <a href="/" class="header__lang-item" lang="fr" hreflang="fr">FR</a>
+          <span class="header__lang-sep" aria-hidden="true">|</span>
+          <a href="/en/" class="header__lang-item header__lang-item--active" aria-current="page" lang="en">EN</a>
+        </div>
+        <a href="#download" class="header__link header__link--cta">Download</a>
+      </nav>
+      <button class="header__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="accueil">
+    <div class="container hero__inner">
+      <p class="hero__badge">The multi-source client for Android TV</p>
+      <h1 class="hero__title">All your servers. All your streams.<br><span class="text-gradient">One single entry.</span></h1>
+      <p class="hero__subtitle">PlexHubTV intelligently aggregates your multiple Plex servers, Jellyfin and your Xtream/M3U streams. A movie present on two sources stays ONE movie — with source picker when you press Play.</p>
+      <p class="hero__tagline">Free &bull; No ads &bull; No third-party tracking &bull; Open distribution</p>
+      <div class="hero__actions">
+        <a href="#download" class="btn btn--primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+          Download the APK
+        </a>
+        <a href="#aggregation" class="btn btn--secondary">How does it work?</a>
+      </div>
+      <p class="hero__mini">Android TV 8.0+ &bull; Automatic OTA updates &bull; <span class="hero__mini-soft">Soon on Google Play</span></p>
+    </div>
+    <div class="hero__glow"></div>
+  </section>
+
+  <!-- ========== AGGREGATION — KEY DIFFERENTIATOR ========== -->
+  <section class="section" id="aggregation">
+    <div class="container">
+      <span class="section__label">The aggregation no one else does</span>
+      <h2 class="section__title section__title--center">One movie. Three sources.<br><span class="text-gradient">One single entry.</span></h2>
+      <p class="section__text section__text--center">No other Android TV client reconciles your duplicates across Plex, Jellyfin and IPTV. PlexHubTV does it automatically, silently, on every sync.</p>
+
+      <div class="aggregation-visual">
+        <div class="agg-sources">
+          <div class="agg-source agg-source--plex1">
+            <div class="agg-source__label">Plex — Living Room</div>
+            <div class="agg-source__poster">
+              <span class="agg-source__title">Inception</span>
+              <span class="agg-source__meta">4K HDR &middot; Direct play</span>
+            </div>
+          </div>
+          <div class="agg-source agg-source--plex2">
+            <div class="agg-source__label">Plex — Friend</div>
+            <div class="agg-source__poster">
+              <span class="agg-source__title">Inception</span>
+              <span class="agg-source__meta">1080p &middot; Remote</span>
+            </div>
+          </div>
+          <div class="agg-source agg-source--jellyfin">
+            <div class="agg-source__label">Jellyfin</div>
+            <div class="agg-source__poster">
+              <span class="agg-source__title">Inception</span>
+              <span class="agg-source__meta">1080p &middot; Local</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="agg-arrow" aria-hidden="true">
+          <svg viewBox="0 0 60 80" width="60" height="80"><path d="M30 10 L30 60 M15 50 L30 65 L45 50" stroke="url(#g)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e5a00d"/><stop offset="1" stop-color="#ff6a3d"/></linearGradient></defs></svg>
+          <span class="agg-arrow__label">Merge</span>
+        </div>
+
+        <div class="agg-result">
+          <div class="agg-result__poster">
+            <span class="agg-result__badge">3 sources</span>
+            <div class="agg-result__body">
+              <span class="agg-result__title">Inception</span>
+              <span class="agg-result__year">2010 &middot; 2h28</span>
+              <div class="agg-result__notes">
+                <span class="agg-result__note"><strong>8.8</strong> IMDb</span>
+                <span class="agg-result__note"><strong>87%</strong> TMDb</span>
+              </div>
+              <div class="agg-result__sources">
+                <span class="agg-result__chip agg-result__chip--primary">▶ Plex Living Room (4K HDR)</span>
+                <span class="agg-result__chip">Plex Friend (1080p)</span>
+                <span class="agg-result__chip">Jellyfin (1080p)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agg-points">
+        <div class="agg-point">
+          <div class="agg-point__num">1</div>
+          <div>
+            <strong class="agg-point__title">Automatic deduplication</strong>
+            <p class="agg-point__text">On every sync, movies and shows present on multiple servers get reconciled via their IMDb and TMDb identifiers. No duplicates in your library.</p>
+          </div>
+        </div>
+        <div class="agg-point">
+          <div class="agg-point__num">2</div>
+          <div>
+            <strong class="agg-point__title">Merged metadata</strong>
+            <p class="agg-point__text">The fullest synopsis, the cleanest poster, the IMDb and TMDb ratings, the cast — all merged from the best available source.</p>
+          </div>
+        </div>
+        <div class="agg-point">
+          <div class="agg-point__num">3</div>
+          <div>
+            <strong class="agg-point__title">Source picker at playback</strong>
+            <p class="agg-point__text">A popup lists all available sources with their quality (4K, 1080p, codec). The best-rated source is pre-selected. You decide.</p>
+          </div>
+        </div>
+        <div class="agg-point">
+          <div class="agg-point__num">4</div>
+          <div>
+            <strong class="agg-point__title">Smart fallback</strong>
+            <p class="agg-point__text">Primary server unreachable? PlexHubTV automatically falls back to the backup source. No bounce to the menu, no misleading error message.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="agg-note">Aggregation applies to <strong>movies</strong>, entire <strong>TV shows</strong>, individual <strong>episodes</strong> (one episode can live on a server, the next on another — the list stays continuous), and even Plex <strong>collections</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ========== WHY ========== -->
+  <section class="section section--dark" id="why">
+    <div class="container section--narrow">
+      <span class="section__label">Why PlexHubTV</span>
+      <h2 class="section__title">One app for multi-source<br><span class="text-gradient">power users.</span></h2>
+      <p class="section__text">No Android TV app does Plex, Jellyfin and IPTV well at the same time, and none aggregates your cross-source duplicates. Multi-source users juggle three apps, three histories, three search bars. That observation is what started PlexHubTV.</p>
+      <p class="section__text">The app goes further than stacking three clients: it merges, deduplicates, picks the best source automatically, and exposes the choice at the moment that matters (playback). The UI is Netflix-style, the D-pad is first-class, and the dual playback engine never returns an unplayable file.</p>
+      <p class="section__text">The project is built by one person on personal time. Sideload-distributed today, Play Store coming. A premium donation tier is in the works to support long-term development.</p>
+    </div>
+  </section>
+
+  <!-- ========== SOURCES ========== -->
+  <section class="section" id="sources">
+    <div class="container">
+      <span class="section__label">Supported sources</span>
+      <h2 class="section__title">Everything you watch.<br><span class="text-gradient">In one place.</span></h2>
+      <p class="section__text section__text--center">A unified view merges these sources into a single library. Or keeps them separate. Your call, any time.</p>
+      <div class="sources-grid">
+        <div class="source-card">
+          <div class="source-card__tag">Multi-server</div>
+          <h3 class="source-card__title">Plex Media Server</h3>
+          <p class="source-card__text">Multiple Plex servers connected at once. Yours, your friends', your remote seedbox. All merged into a single library, with source picker at playback.</p>
+        </div>
+        <div class="source-card">
+          <div class="source-card__tag">Open source</div>
+          <h3 class="source-card__title">Jellyfin</h3>
+          <p class="source-card__text">Native Jellyfin client. Multi-server. Direct play, metadata merged with Plex in the unified view — not a separate tab.</p>
+        </div>
+        <div class="source-card">
+          <div class="source-card__tag">Live & VOD</div>
+          <h3 class="source-card__title">Xtream Codes</h3>
+          <p class="source-card__text">VOD, series and live in the same interface. Multi-account, dedicated EPG, per-profile category filters. Background sync with visible progress.</p>
+        </div>
+        <div class="source-card">
+          <div class="source-card__tag">IPTV</div>
+          <h3 class="source-card__title">M3U playlists</h3>
+          <p class="source-card__text">Import via URL or file. Parsing optimized for mainstream playlists and classic IPTV providers. XMLTV EPG support, parsed in the background.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DEMO ========== -->
+  <section class="section section--dark" id="demo">
+    <div class="container demo-section">
+      <span class="section__label">Demo</span>
+      <h2 class="section__title">See PlexHubTV<br><span class="text-gradient">in action.</span></h2>
+      <p class="section__text">A few seconds to grasp D-pad navigation, the player, multi-source and Live TV.</p>
+      <div class="demo-video-wrapper">
+        <video class="demo-video" controls playsinline preload="metadata">
+          <source src="../Screen_recording_20260312_102054 (1).webm" type="video/webm">
+          Your browser does not support video playback.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section class="section" id="features">
+    <div class="container">
+      <span class="section__label">Features</span>
+      <h2 class="section__title">Every feature.<br><span class="text-gradient">No compromise.</span></h2>
+      <p class="section__text section__text--center">A complete inventory, grouped by use case. Everything is included, free.</p>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Cross-source aggregation</h3>
+        <ul class="feature-bullets">
+          <li>Unified library across multi-server Plex + Jellyfin + Xtream/M3U</li>
+          <li>Automatic deduplication via IMDb/TMDb identifiers</li>
+          <li>Metadata merged from the best source (synopsis, posters, ratings, cast)</li>
+          <li>Source picker at playback (popup with quality, codec, server)</li>
+          <li>Automatic fallback if the primary source is unavailable</li>
+          <li>Aggregation at movie, show, season, individual episode and collection levels</li>
+          <li>Per-server filters or unified view — your choice</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Discovery & navigation</h3>
+        <ul class="feature-bullets">
+          <li>Netflix-style home with fullscreen hero carousel</li>
+          <li>Personalized "For You" row</li>
+          <li>"Continue watching" with exact per-profile resume</li>
+          <li>Suggestions and AI recommendations (similar movies with Gemini fallback)</li>
+          <li>Favorite actors with dedicated row</li>
+          <li>Plex hubs (collections, On Deck, recently added)</li>
+          <li>Instant cross-source search (local results then network enrichment)</li>
+          <li>Voice search (remote microphone)</li>
+          <li>Alphabetical jump in the grid (A-Z side panel)</li>
+          <li>Filters by genre, server, rating, year</li>
+          <li>Sort by title, IMDb/TMDb rating, added date, release date</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Video player</h3>
+        <ul class="feature-bullets">
+          <li>Dual engine: primary engine + automatic fallback for exotic codecs</li>
+          <li>No unplayable file (H.264, H.265, VP9, AV1, legacy codecs, rare containers)</li>
+          <li>Exact resume per profile</li>
+          <li>Automatic next-episode playback</li>
+          <li>Next-episode prefetch (zero loading time between episodes)</li>
+          <li>Multi-provider Skip Intro (Plex chapters, IntroDB, AniSkip, ARM)</li>
+          <li>Skip Recap and Skip Credits with per-profile preferences</li>
+          <li>On-the-fly audio track switching (without interrupting playback)</li>
+          <li>On-the-fly subtitle track switching</li>
+          <li>Fine audio and subtitle offset adjustment</li>
+          <li>Quality picker: Original, 4K, 1080p, 720p, adaptive</li>
+          <li>Subtitle styling: size, color, background, outline, font</li>
+          <li>ASS/SSA subtitles (animations, complex styles)</li>
+          <li>Dolby Atmos audio passthrough</li>
+          <li>Automatic playback fallback on errors (server transcode as last resort)</li>
+          <li>Real-time stats overlay (bitrate, codec, FPS, dropped frames)</li>
+          <li>Adaptive buffer profile based on memory and latency</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">AI subtitles</h3>
+        <ul class="feature-bullets">
+          <li>Streaming translation of subtitles during playback</li>
+          <li>Supported models: Groq Llama 3.3 70B and Gemini 2.5 Flash</li>
+          <li>Configurable target language</li>
+          <li>Right-to-left language handling (Arabic, Hebrew, Farsi, Urdu, Yiddish)</li>
+          <li>Online subtitle search via OpenSubtitles</li>
+          <li>You bring your own API key (never bundled)</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Live TV & EPG</h3>
+        <ul class="feature-bullets">
+          <li>Live IPTV channels (Xtream Codes and M3U)</li>
+          <li>Full EPG grid now+12h (up to 7 days depending on source)</li>
+          <li>D-pad navigable category sidebar</li>
+          <li>Vertical channel row</li>
+          <li>QuickZap on D-pad up/down (instant channel switch)</li>
+          <li>Mini-player at the top (preview while browsing)</li>
+          <li>Per-profile favorite channels</li>
+          <li>Per-profile hideable categories (hide adult on kid profile)</li>
+          <li>Optimized XMLTV EPG parsing (with GZIP)</li>
+          <li>Instant Now/Next on every channel</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Profiles & parental controls</h3>
+        <ul class="feature-bullets">
+          <li>Up to 5 local profiles per device</li>
+          <li>Emoji or custom photo avatars</li>
+          <li>Optional per-profile PIN (secure hash, never plaintext)</li>
+          <li>Kids mode with configurable age rating (7+, 13+, 16+, 18+)</li>
+          <li>Watch history isolated per profile</li>
+          <li>Favorites isolated per profile</li>
+          <li>Watchlist isolated per profile</li>
+          <li>Per-profile preferred audio language</li>
+          <li>Per-profile preferred subtitle language</li>
+          <li>Per-profile preferred quality</li>
+          <li>Per-profile home rows order</li>
+          <li>Per-profile library filters (sort, genre, server) memorized</li>
+          <li>Per-profile Live TV favorite channels</li>
+          <li>Plex Home user switching integrated</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Enriched metadata</h3>
+        <ul class="feature-bullets">
+          <li>IMDb ratings on every poster (via OMDb)</li>
+          <li>TMDb ratings on every poster</li>
+          <li>Sort library by rating</li>
+          <li>Synopses enriched from the best source</li>
+          <li>Full cast with actor photos</li>
+          <li>Person pages (movies/shows where the actor appears)</li>
+          <li>Trailers and extras when available</li>
+          <li>Full seasons and episodes with descriptions</li>
+          <li>Plex collections (sagas, franchises)</li>
+          <li>Manual scraper to fix a misdetected entry</li>
+          <li>Background sync with configurable quotas</li>
+          <li>Configurable metadata language</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Personal lists</h3>
+        <ul class="feature-bullets">
+          <li>Custom playlists (create, edit, queue for playback)</li>
+          <li>Cross-source favorites (heart a movie, accessible whatever the server)</li>
+          <li>Plex watchlist synced</li>
+          <li>Full watch history</li>
+          <li>Statistics (watch time by server, by profile, by genre)</li>
+          <li>Manual watched/unwatched toggle, scoped per profile</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Downloads & offline</h3>
+        <ul class="feature-bullets">
+          <li>Movie and episode downloads</li>
+          <li>Offline playback without internet</li>
+          <li>Resume progress synced on reconnection</li>
+          <li>Download queue with progress</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Integrations</h3>
+        <ul class="feature-bullets">
+          <li>Full Trakt.tv sync (history, watchlist, progress, ratings)</li>
+          <li>Trakt OAuth device flow (QR + 8-digit code)</li>
+          <li>Offline outbox (your actions are replayed on reconnection)</li>
+          <li>TV ↔ mobile pairing (QR code to pair your TV from the phone)</li>
+          <li>"Continue watching" channel in the Android TV launcher</li>
+          <li>Deep links for direct launch from another app</li>
+          <li>Plex Home compatible (Plex user switching)</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Updates & sync</h3>
+        <ul class="feature-bullets">
+          <li>Automatic updates via GitHub Releases (sideload OTA)</li>
+          <li>Boot-time check, transparent install dialog</li>
+          <li>Background sync every 6 h (configurable, manual mode possible)</li>
+          <li>Next-episode pre-sync (instant playback)</li>
+          <li>Visual per-source sync tracking (dedicated screen)</li>
+          <li>Resume interrupted downloads</li>
+          <li>Smart retry for failed servers (persistent cooldown)</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Interface customization</h3>
+        <ul class="feature-bullets">
+          <li>4+ visual themes (CinemaGold, Plex, MonoDark, MonoLight, Morocco)</li>
+          <li>Toggleable hero section</li>
+          <li>Spotlight or standard grid layout</li>
+          <li>Episode poster mode (show poster or episode capture)</li>
+          <li>Year display on cards</li>
+          <li>Configurable grid column count</li>
+          <li>Drag-and-drop home rows order</li>
+          <li>Per-row visibility (Continue, My List, Suggestions)</li>
+          <li>Screensaver with 3 modes (KenBurns, Mosaic, Carousel) + clock</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Android TV comfort</h3>
+        <ul class="feature-bullets">
+          <li>Full D-pad navigation on every screen</li>
+          <li>Focus restoration (you return exactly where you were)</li>
+          <li>Voice search via the remote</li>
+          <li>Optimized for budget devices (Mi Box S, Fire TV Stick) — 2 GB RAM is enough</li>
+          <li>Compatible with Nvidia Shield, Chromecast Google TV, Fire TV Stick 4K</li>
+          <li>Native Leanback support</li>
+          <li>Built-in debug mode (network diagnostics and logs)</li>
+          <li>No ads</li>
+          <li>No third-party tracking (Crashlytics/Sentry opt-out in Settings)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LIVE TV (visual) ========== -->
+  <section class="section section--dark" id="live-tv">
+    <div class="container section--split">
+      <div class="section--split__text">
+        <span class="section__label">Live TV & EPG</span>
+        <h2 class="section__title">IPTV that earns<br><span class="text-gradient">its name.</span></h2>
+        <p class="section__text">Import your M3U playlists or connect your Xtream Codes accounts. Categories in a sidebar, vertical channel row, horizontal EPG grid now+12h, QuickZap on D-pad up/down, mini-player at the top. Favorites and hidden categories per profile. The IPTV mode that doesn't envy a real TV box.</p>
+      </div>
+      <div class="section--split__visual">
+        <div class="iptv-visual">
+          <div class="iptv-channel">
+            <div class="iptv-channel__bar"></div>
+            <span>BBC One</span>
+          </div>
+          <div class="iptv-channel iptv-channel--active">
+            <div class="iptv-channel__bar"></div>
+            <span>Sky Sports F1</span>
+          </div>
+          <div class="iptv-channel">
+            <div class="iptv-channel__bar"></div>
+            <span>ESPN</span>
+          </div>
+          <div class="iptv-channel">
+            <div class="iptv-channel__bar"></div>
+            <span>CNN</span>
+          </div>
+          <div class="iptv-channel">
+            <div class="iptv-channel__bar"></div>
+            <span>Eurosport</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROFILES ========== -->
+  <section class="section" id="profiles">
+    <div class="container section--split section--split--reverse">
+      <div class="section--split__text">
+        <span class="section__label">Profiles & parental controls</span>
+        <h2 class="section__title">A profile for everyone.<br><span class="text-gradient">Control for parents.</span></h2>
+        <p class="section__text">Up to 5 local profiles with emoji or photo avatars. Switch on Kids mode to filter content by age rating. Lock profile switching with a PIN — securely hashed, never plaintext. Each profile keeps its own watch history, favorites, watchlist, resume offset, language and quality preferences, and even Live TV favorite channels.</p>
+      </div>
+      <div class="section--split__visual">
+        <div class="profile-visual">
+          <div class="profile-avatar profile-avatar--1">A</div>
+          <div class="profile-avatar profile-avatar--2">M</div>
+          <div class="profile-avatar profile-avatar--3">K</div>
+          <div class="profile-avatar profile-avatar--4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.1 14.8,9.5V11C15.4,11 16,11.6 16,12.3V15.8C16,16.4 15.4,17 14.7,17H9.2C8.6,17 8,16.4 8,15.7V12.2C8,11.6 8.6,11 9.2,11V9.5C9.2,8.1 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11H13.5V9.5C13.5,8.7 12.8,8.2 12,8.2Z"/></svg>
+          </div>
+          <div class="profile-avatar profile-avatar--5">+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPARE ========== -->
+  <section class="section section--dark" id="compare">
+    <div class="container">
+      <span class="section__label">Comparison</span>
+      <h2 class="section__title">Honest,<br><span class="text-gradient">column by column.</span></h2>
+      <p class="section__text section__text--center">What PlexHubTV actually brings, and what we don't claim to do better. You decide.</p>
+      <div class="specs-table-wrapper">
+        <table class="compare-table compare-table--3col">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="compare-table__highlight">PlexHubTV</th>
+              <th>Plex official</th>
+              <th>Jellyfin official</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cross-source aggregation (Plex + Jellyfin + IPTV)</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Multi-server deduplication</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Source picker at playback</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Multi-server Plex in a unified view</td><td class="compare-table__highlight">Yes</td><td>No</td><td>—</td></tr>
+            <tr><td>Multi-server Jellyfin in a unified view</td><td class="compare-table__highlight">Yes</td><td>—</td><td>No</td></tr>
+            <tr><td>Built-in IPTV / Xtream Codes</td><td class="compare-table__highlight">Yes</td><td>No</td><td>Partial</td></tr>
+            <tr><td>Full Live TV EPG grid</td><td class="compare-table__highlight">Yes</td><td>Limited</td><td>Limited</td></tr>
+            <tr><td>Fallback player for exotic codecs</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>AI subtitles (LLM translation)</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Multi-provider Skip Intro</td><td class="compare-table__highlight">Yes</td><td>Plex Pass</td><td>Third-party plugin</td></tr>
+            <tr><td>Built-in Trakt.tv sync</td><td class="compare-table__highlight">Yes</td><td>No</td><td>Third-party plugin</td></tr>
+            <tr><td>PIN profiles with real isolation</td><td class="compare-table__highlight">Yes</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>Sort by IMDb/TMDb rating</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Offline downloads</td><td class="compare-table__highlight">Free</td><td>Plex Pass</td><td>Yes</td></tr>
+            <tr><td>Automatic OTA updates</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Play Store available</td><td>Soon</td><td class="compare-table__highlight">Yes</td><td class="compare-table__highlight">Yes</td></tr>
+            <tr><td>Mobile / tablet</td><td>Soon</td><td class="compare-table__highlight">Yes</td><td class="compare-table__highlight">Yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FORMATS ========== -->
+  <section class="section" id="formats">
+    <div class="container">
+      <span class="section__label">Supported formats</span>
+      <h2 class="section__title section__title--center">Everything plays.<br><span class="text-gradient">No exception.</span></h2>
+      <div class="formats-grid">
+        <div class="format-block">
+          <h3 class="format-block__title">Video</h3>
+          <p class="format-block__list">H.264 &middot; H.265 / HEVC &middot; VP8 &middot; VP9 &middot; AV1</p>
+        </div>
+        <div class="format-block">
+          <h3 class="format-block__title">Audio</h3>
+          <p class="format-block__list">AAC &middot; MP3 &middot; FLAC &middot; Opus &middot; DTS &middot; Dolby Atmos (passthrough)</p>
+        </div>
+        <div class="format-block">
+          <h3 class="format-block__title">Subtitles</h3>
+          <p class="format-block__list">SRT &middot; VTT &middot; ASS/SSA &middot; PGS &middot; AI translation Groq/Gemini</p>
+        </div>
+        <div class="format-block">
+          <h3 class="format-block__title">Streaming</h3>
+          <p class="format-block__list">HLS &middot; DASH &middot; direct HTTP &middot; server transcode as fallback</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPATIBILITY ========== -->
+  <section class="section section--dark" id="compatibility">
+    <div class="container">
+      <span class="section__label">Compatibility</span>
+      <h2 class="section__title">Built for Android TV.<br><span class="text-gradient">Native.</span></h2>
+      <ul class="compat-list">
+        <li>Android TV 8.0 and above</li>
+        <li>Full D-pad navigation, focus restoration on every screen</li>
+        <li>"Continue watching" integration in the Android TV launcher</li>
+        <li>Deep links for direct launch from another app</li>
+        <li>Optimized for budget devices (Mi Box S 2 GB RAM, Chromecast with Google TV)</li>
+        <li>Compatible with Nvidia Shield, Fire TV Stick 4K, recent Chromecast Google TV</li>
+        <li>Native Leanback support</li>
+        <li>Screensaver / Daydream mode with 3 styles + clock</li>
+        <li>Voice search via the remote</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== DOWNLOAD ========== -->
+  <section class="section" id="download">
+    <div class="container">
+      <span class="section__label">Download</span>
+      <h2 class="section__title">Pick your architecture.<br><span class="text-gradient">Install in 30 seconds.</span></h2>
+      <p class="section__text section__text--center">Currently distributed via sideload from GitHub Releases. Subsequent updates are automatic (OTA) from inside the app.</p>
+
+      <div class="download-grid">
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest/download/PlexHubTV-1.0.26-armeabi-v7a.apk" class="download-card">
+          <div class="download-card__abi">armeabi-v7a</div>
+          <div class="download-card__title">32 bit</div>
+          <p class="download-card__devices">Mi Box S &middot; Fire TV Stick 4K &middot; older Android TV devices</p>
+          <div class="download-card__cta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+            Download v1.0.26
+          </div>
+        </a>
+
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest/download/PlexHubTV-1.0.26-arm64-v8a.apk" class="download-card download-card--featured">
+          <div class="download-card__abi">arm64-v8a</div>
+          <div class="download-card__title">64 bit (recommended)</div>
+          <p class="download-card__devices">Nvidia Shield &middot; recent Chromecast Google TV &middot; modern Android TV devices</p>
+          <div class="download-card__cta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+            Download v1.0.26
+          </div>
+        </a>
+      </div>
+
+      <p class="download-meta">Signed builds, SHA256 checksums published next to each APK on <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest" class="link-accent">the release page</a>. Once installed, the app checks for updates automatically.</p>
+
+      <div class="install-tip">
+        <strong>How to install on Android TV?</strong>
+        Download the APK from your TV (built-in browser or Downloader app), or copy it from a PC via USB stick / network share. On first install, allow installation from unknown sources (Settings &rarr; Security or Settings &rarr; Apps &rarr; Special permissions). The future Play Store launch will skip that step.
+      </div>
+
+      <p class="download-soft">
+        <span class="soft-badge">Soon</span> Available on Google Play
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== SUPPORT ========== -->
+  <section class="section section--dark" id="support">
+    <div class="container section--narrow">
+      <span class="section__label">Support the project</span>
+      <h2 class="section__title">Free today.<br><span class="text-gradient">Independent for the long run.</span></h2>
+      <p class="section__text">PlexHubTV is entirely free, with no ads or third-party tracking. The project is built by one person on personal time. If the app saves you time daily, you can support it.</p>
+      <p class="section__text">A premium donation tier is being prepared: it will unlock a few comfort features (to be defined with the community) while keeping the core app free for everyone. No hidden IAP, no covert subscription.</p>
+      <div class="support-actions">
+        <button class="btn btn--primary btn--disabled" disabled aria-disabled="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+          Premium donation coming soon
+        </button>
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release" class="btn btn--secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12,2C6.477,2 2,6.477 2,12C2,16.418 4.865,20.166 8.84,21.49C9.34,21.581 9.523,21.272 9.523,21.007C9.523,20.768 9.515,20.135 9.51,19.295C6.726,19.9 6.139,17.952 6.139,17.952C5.685,16.798 5.029,16.49 5.029,16.49C4.121,15.87 5.098,15.882 5.098,15.882C6.101,15.952 6.629,16.911 6.629,16.911C7.521,18.437 8.97,17.997 9.54,17.741C9.631,17.094 9.889,16.654 10.174,16.404C7.953,16.151 5.617,15.293 5.617,11.477C5.617,10.389 6.005,9.499 6.649,8.803C6.545,8.55 6.202,7.537 6.747,6.166C6.747,6.166 7.587,5.898 9.499,7.193C10.299,6.971 11.15,6.86 12,6.856C12.85,6.86 13.702,6.971 14.503,7.193C16.413,5.898 17.251,6.166 17.251,6.166C17.798,7.537 17.455,8.55 17.351,8.803C17.997,9.499 18.382,10.389 18.382,11.477C18.382,15.303 16.042,16.147 13.814,16.395C14.172,16.704 14.492,17.314 14.492,18.247C14.492,19.583 14.479,20.677 14.479,21.007C14.479,21.274 14.66,21.585 15.167,21.487C19.139,20.16 22,16.415 22,12C22,6.477 17.522,2 12,2Z"/></svg>
+          Star the public repo
+        </a>
+      </div>
+      <p class="section__text section__text--muted">In the meantime, starring the releases repo and telling other multi-source power users about the app helps a lot to grow the project.</p>
+    </div>
+  </section>
+
+  <!-- ========== ROADMAP ========== -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      <span class="section__label">Public roadmap</span>
+      <h2 class="section__title">What's already here.<br><span class="text-gradient">What's coming.</span></h2>
+      <div class="roadmap-grid">
+        <div class="roadmap-item roadmap-item--done">
+          <div class="roadmap-item__status">Now</div>
+          <h3 class="roadmap-item__title">Sideload v1.0.26</h3>
+          <p class="roadmap-item__text">Cross-source aggregation, multi-server Plex, Jellyfin, IPTV/Xtream, Live TV EPG, PIN profiles, AI subtitles, multi-provider Skip Intro, dual-engine player, OTA self-update.</p>
+        </div>
+        <div class="roadmap-item roadmap-item--soon">
+          <div class="roadmap-item__status">Soon</div>
+          <h3 class="roadmap-item__title">Premium donation</h3>
+          <p class="roadmap-item__text">Optional financial support for long-term development. Comfort features to be defined with the community. Core app stays free.</p>
+        </div>
+        <div class="roadmap-item roadmap-item--soon">
+          <div class="roadmap-item__status">Q3 2026</div>
+          <h3 class="roadmap-item__title">Google Play launch</h3>
+          <p class="roadmap-item__text">Official Play Store distribution. No more manual sideload, no more "unknown sources" permission. Updates through the store.</p>
+        </div>
+        <div class="roadmap-item roadmap-item--later">
+          <div class="roadmap-item__status">Later</div>
+          <h3 class="roadmap-item__title">Mobile and tablet</h3>
+          <p class="roadmap-item__text">Extending PlexHubTV to mobile and tablet, while preserving consistency of use and cross-source aggregation.</p>
+        </div>
+        <div class="roadmap-item roadmap-item--later">
+          <div class="roadmap-item__status">Studying</div>
+          <h3 class="roadmap-item__title">Community addons</h3>
+          <p class="roadmap-item__text">Plugins to add new third-party sources. Subject to a deep security review before opening up.</p>
+        </div>
+        <div class="roadmap-item roadmap-item--later">
+          <div class="roadmap-item__status">Idea</div>
+          <h3 class="roadmap-item__title">Chromecast bridge</h3>
+          <p class="roadmap-item__text">Possibility to send content from the TV to a neighboring Chromecast (feasibility study).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section section--dark" id="faq">
+    <div class="container">
+      <span class="section__label">FAQ</span>
+      <h2 class="section__title">Frequently asked questions.</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            How does aggregation between Plex and Jellyfin work?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>On every sync, PlexHubTV fetches the IMDb and TMDb identifiers of your movies and shows on each server. If the same identifier appears on multiple servers (for instance the same movie on your Plex and a friend's Jellyfin), the entries are merged into a single one. At playback, a popup lists all available sources with quality, and the best-rated one is pre-selected.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            What if I want to keep my libraries separate?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>You can toggle between the unified view and a per-server filter at any time (a button in the grid). You can also hide servers in settings — for example, a friend's Jellyfin only appears when you explicitly enable it.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Is PlexHubTV free?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Yes, entirely. No ads, no limitations. A premium donation tier is being prepared to support the project, but the core app stays free for everyone.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            How do I install it without the Play Store?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Download the APK from this page (32 or 64 bit depending on your TV). On first install, allow installation from unknown sources in Android settings. Once installed, the app checks for updates via OTA — you won't have to do it again.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Why sideload and not the Play Store?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>The project is young and Play Store publication is being prepared (the code is already ready on the flavor side). In the meantime, the built-in OTA self-update covers the need for automatic updates.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Do I need a Plex or Jellyfin server?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>At least one source is required: a Plex server, a Jellyfin server, an Xtream Codes account or an M3U playlist. You can mix sources: a home Plex server + an Xtream Live account + a friend on Jellyfin = everything in the same app.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            What happens if one of my servers is offline?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>For a movie present on multiple sources, PlexHubTV automatically falls back to the backup source. For a movie exclusive to an offline server, the entry stays visible (persistent library) but playback is disabled until the server returns, with smart background retry.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            What's the difference with the official Plex app?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Cross-source aggregation (Plex + Jellyfin + IPTV in the same library), automatic deduplication, source picker at playback, fallback player for exotic codecs, PIN profiles with real isolation, AI subtitles, multi-provider Skip Intro (not just Plex Pass), sort by IMDb/TMDb ratings, OTA, free. See the comparison table above.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            What's the difference with the official Jellyfin app?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Ability to mix Jellyfin with Plex and IPTV in the same aggregated library, fallback player for exotic codecs, AI subtitles, full Live TV EPG, built-in Trakt sync. The official Jellyfin client remains excellent if you only use Jellyfin.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Does the app collect my data?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Crash reporting is on by default in release builds (can be disabled: Settings &rarr; System &rarr; Privacy). No third-party tracking, no ads, no sharing with advertisers. AI subtitles use an API key you provide (Groq or Gemini) — it stays on your TV, encrypted.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            How does updating work?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>The built-in OTA periodically checks <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest" class="link-accent">PlexhubTV_Release/latest</a>, downloads the APK matching your architecture and launches the Android system installer. You keep control (you validate the install). No store required.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            What will happen when the premium donation arrives?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>The core app stays free for everyone. Premium features will be defined with the community (poll, repo discussion) before deployment. No hidden IAP, no covert subscription — the goal is to fund long-term development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL ========== -->
+  <section class="section cta-final">
+    <div class="container">
+      <h2 class="section__title">Ready to unify<br><span class="text-gradient">your setup?</span></h2>
+      <p class="section__text">Download the APK that fits your TV. Subsequent updates will arrive on their own.</p>
+      <a href="#download" class="btn btn--primary btn--large">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+        Download PlexHubTV
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#accueil" class="header__logo">Plex<span>HubTV</span></a>
+        <p class="footer__tagline">All your servers. All your streams. One single entry.</p>
+      </div>
+      <nav class="footer__links" aria-label="Secondary links">
+        <a href="#aggregation" class="footer__link">Aggregation</a>
+        <a href="#features" class="footer__link">Features</a>
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest" class="footer__link">Releases</a>
+        <a href="#roadmap" class="footer__link">Roadmap</a>
+        <a href="#faq" class="footer__link">FAQ</a>
+      </nav>
+    </div>
+    <div class="container footer__legal">
+      <p>PlexHubTV is an independent third-party client. Plex is a registered trademark of Plex GmbH. Jellyfin is free software under GPL v2. PlexHubTV is not affiliated with, sponsored by, or endorsed by Plex GmbH or the Jellyfin project.</p>
+      <p>Built on widely recognized open-source components from the Android community. Thanks to those projects.</p>
+      <p class="footer__copy">&copy; 2026 PlexHubTV.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Smooth scroll */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length <= 1) return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const headerOffset = 72;
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
+        }
+        document.getElementById('nav').classList.remove('header__nav--open');
+        document.getElementById('burger').classList.remove('header__burger--open');
+      });
+    });
+
+    /* Sticky header shadow */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('header--scrolled', window.scrollY > 20);
+    });
+
+    /* Mobile burger */
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('header__nav--open');
+      burger.classList.toggle('header__burger--open');
+    });
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-item__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('faq-item--open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-item--open'));
+        document.querySelectorAll('.faq-item__question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        if (!isOpen) {
+          item.classList.add('faq-item--open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* Scroll reveal */
+    const revealElements = document.querySelectorAll('.feature-card, .player-feature, .faq-item, .section--split__visual, .metadata-badges, .demo-video-wrapper, .source-card, .download-card, .roadmap-item, .features-extra__item, .feature-group, .agg-source, .agg-result, .agg-point, .format-block');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
