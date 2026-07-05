@@ -507,7 +507,24 @@ You can also check manually:</p>
 <p><em>Settings → System &amp; About → Updates → </em><em>"Check now"</em>**.</p>
 <p>A new version is downloaded and offered for installation; integrity (SHA-256) is verified before installing.</p>
 <hr />
-<h2 id="14-faq-and-troubleshooting">14. FAQ and troubleshooting</h2>
+<h2 id="14-backup-and-transfer">14. Backup and transfer</h2>
+<p>PlexHubTV can export <strong>all of your work</strong> — scraped ratings and synopses, posters, favorites, lists,
+profiles, resume points, server accounts, API keys and settings — into a single <strong>.phbx</strong> file.
+Perfect for <strong>moving to a new TV</strong> or reinstalling without reconfiguring everything.</p>
+<p><strong>Export:</strong> <em>Settings → Library &amp; Sync → Backup &amp; transfer → "Export"</em>.
+Pick where to save the file through the Android file picker (no storage permission is requested).</p>
+<p><strong>Import:</strong> on the new device, <em>… → "Import"</em>, select the <strong>.phbx</strong> file, then a mode:</p>
+<ul>
+<li><strong>Light (recommended)</strong>: <strong>non-destructive</strong> merge — favorites, profiles, ratings and settings are
+  added to what already exists. Re-importable at will.</li>
+<li><strong>Full (advanced)</strong>: entirely replaces the local database with the one from the file; the app restarts
+  to finalize the import.</li>
+</ul>
+<p>File <strong>integrity</strong> is verified with a <strong>SHA-256</strong> checksum; a corrupt file is rejected.</p>
+<p><strong>⚠️ Security:</strong> the <strong>.phbx</strong> file contains your <strong>server credentials and API keys</strong> in plain
+text (so they can be restored). <strong>Keep it somewhere safe</strong> and do not share it.</p>
+<hr />
+<h2 id="15-faq-and-troubleshooting">15. FAQ and troubleshooting</h2>
 <p><strong>Some content is missing or a row is empty.</strong>
 Often a sync is still running (see the sync chip at the top). You can force a sync in
 <em>Settings → Library &amp; Sync</em>.</p>
@@ -529,7 +546,7 @@ lock it.</p>
 <p><strong>How do I start over?</strong>
 <em>Settings → Library &amp; Sync → "Clear cache and data"</em>, or <strong>Sign out</strong> in <em>System &amp; About</em>.</p>
 <hr />
-<h2 id="15-privacy">15. Privacy</h2>
+<h2 id="16-privacy">16. Privacy</h2>
 <p><strong>Crash reports</strong> (diagnostics) are controlled in <em>Settings → System &amp; About → Privacy</em>. An anonymous
 identifier can be copied for support. No personally identifiable information is attached to reports.</p>
 <p>Full privacy policy: <a href="privacy-policy-en.md">English</a> · <a href="privacy-policy-fr.md">Français</a>.</p>

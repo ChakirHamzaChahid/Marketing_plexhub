@@ -55,8 +55,8 @@
     "name": "PlexHubTV",
     "operatingSystem": "Android TV 8.0+",
     "applicationCategory": "MultimediaApplication",
-    "description": "Unified Android TV client for multi-server Plex, Jellyfin and IPTV/Xtream with cross-source aggregation. A movie present on multiple servers stays a single entry, with source picker at playback. Dual playback engine, PIN profiles, AI subtitles, multi-provider Skip Intro, Live TV EPG, Trakt sync, OTA self-update.",
-    "softwareVersion": "1.0.46",
+    "description": "Unified Android TV client (also mobile and tablet) for multi-server Plex, Jellyfin and IPTV/Xtream with cross-source aggregation. A movie present on multiple servers stays a single entry, with source picker at playback. Dual playback engine, PIN profiles, AI subtitles, multi-provider Skip Intro, Live TV EPG, Trakt sync, library backup and transfer between devices, Cast, OTA self-update.",
+    "softwareVersion": "1.0.47",
     "downloadUrl": "https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest",
     "offers": {
       "@type": "Offer",
@@ -112,7 +112,7 @@
         </a>
         <a href="#aggregation" class="btn btn--secondary">How does it work?</a>
       </div>
-      <p class="hero__mini">Android TV 8.0+ &bull; Automatic OTA updates &bull; <span class="hero__mini-soft">Soon on Google Play</span></p>
+      <p class="hero__mini">Android TV 8.0+ &bull; Also on mobile &amp; tablet &bull; Automatic OTA updates &bull; <span class="hero__mini-soft">Soon on Google Play</span></p>
     </div>
     <div class="hero__glow"></div>
   </section>
@@ -282,6 +282,7 @@
           <li>Source picker at playback (popup with quality, codec, server)</li>
           <li>Automatic fallback if the primary source is unavailable</li>
           <li>Aggregation at movie, show, season, individual episode and collection levels</li>
+          <li>Multi-account IPTV: every version of a title is offered, a dead stream is greyed out and never played</li>
           <li>Per-server filters or unified view — your choice</li>
         </ul>
       </div>
@@ -292,13 +293,16 @@
           <li>Netflix-style home with fullscreen hero carousel</li>
           <li>Personalized "For You" row</li>
           <li>"Continue watching" with exact per-profile resume</li>
-          <li>Suggestions and AI recommendations (similar movies with Gemini fallback)</li>
+          <li>Moore Metrics recommendations: "For You" movie and show rows, plus "In the same vibe" on every detail page</li>
+          <li>Discover-by-characteristics screen (mood, dimensions) — only titles you actually own</li>
+          <li>Suggestions and similar movies (with Gemini fallback)</li>
           <li>Favorite actors with dedicated row</li>
           <li>Plex hubs (collections, On Deck, recently added)</li>
           <li>Instant cross-source search (local results then network enrichment)</li>
           <li>Voice search (remote microphone)</li>
           <li>Alphabetical jump in the grid (A-Z side panel)</li>
           <li>Filters by genre, server, rating, year</li>
+          <li>Maturity filter (age tier: 7+, 13+, 16+, 18+, adult)</li>
           <li>Sort by title, IMDb/TMDb rating, added date, release date</li>
         </ul>
       </div>
@@ -311,6 +315,8 @@
           <li>Exact resume per profile</li>
           <li>Automatic next-episode playback</li>
           <li>Next-episode prefetch (zero loading time between episodes)</li>
+          <li>Sleep timer (stop at a chosen time or at the end of the episode)</li>
+          <li>Auto-pause when headphones / earbuds are unplugged</li>
           <li>Multi-provider Skip Intro (Plex chapters, IntroDB, AniSkip, ARM)</li>
           <li>Skip Recap and Skip Credits with per-profile preferences</li>
           <li>On-the-fly audio track switching (without interrupting playback)</li>
@@ -329,12 +335,15 @@
       <div class="feature-group">
         <h3 class="feature-group__title">AI subtitles</h3>
         <ul class="feature-bullets">
-          <li>Streaming translation of subtitles during playback</li>
-          <li>Supported models: Groq Llama 3.3 70B and Gemini 2.5 Flash</li>
+          <li>Translate subtitles into your language during playback</li>
+          <li>Translate the embedded or active track, not just a downloaded file</li>
+          <li>Three providers: Groq Llama 3.3 70B, Gemini 2.5 Flash, or your own self-hosted AI server (Ollama)</li>
+          <li>Self-hosted server: no cloud key required, everything stays with you</li>
           <li>Configurable target language</li>
           <li>Right-to-left language handling (Arabic, Hebrew, Farsi, Urdu, Yiddish)</li>
-          <li>Online subtitle search via OpenSubtitles</li>
-          <li>You bring your own API key (never bundled)</li>
+          <li>Online subtitle search via two providers: OpenSubtitles and SubDL</li>
+          <li>Pick which languages to download, graceful fallback when a subtitle is missing</li>
+          <li>You bring your own cloud API key (never bundled), stored encrypted on the device</li>
         </ul>
       </div>
 
@@ -379,6 +388,7 @@
         <ul class="feature-bullets">
           <li>IMDb ratings on every poster (via OMDb)</li>
           <li>TMDb ratings on every poster</li>
+          <li>On the detail page: IMDb and TMDb ratings and vote counts, studio, country, original title, series status</li>
           <li>Sort library by rating</li>
           <li>Synopses enriched from the best source</li>
           <li>Full cast with actor photos</li>
@@ -405,12 +415,41 @@
       </div>
 
       <div class="feature-group">
-        <h3 class="feature-group__title">Downloads & offline</h3>
+        <h3 class="feature-group__title">Downloads & offline <span class="feature-group__tag">mobile</span></h3>
         <ul class="feature-bullets">
-          <li>Movie and episode downloads</li>
+          <li>Download Plex and Jellyfin movies and episodes</li>
+          <li>Original quality by default (direct file, reliable) or 720p / SD to save data</li>
+          <li>Pick which source to download for multi-source content</li>
           <li>Offline playback without internet</li>
+          <li>Progress, live transfer speed and errors visible, with a Retry button</li>
+          <li>Wi-Fi by default (mobile data can be enabled)</li>
           <li>Resume progress synced on reconnection</li>
-          <li>Download queue with progress</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">Backup & transfer <span class="feature-group__tag feature-group__tag--new">New</span></h3>
+        <ul class="feature-bullets">
+          <li>Export your entire setup into a single <code>.phbx</code> file</li>
+          <li>Replicates scraped ratings and synopses, posters, favorites, watchlist, profiles, resume points, server accounts, API keys and settings</li>
+          <li>Perfect for moving to a new TV or reinstalling without reconfiguring everything</li>
+          <li>Light mode (non-destructive merge, re-importable) or Full mode (complete database copy)</li>
+          <li>Transferred via the Android file picker — no storage permission requested</li>
+          <li>Integrity verified with a SHA-256 checksum, import guarded against corrupt files</li>
+          <li>The file contains your server credentials: keep it somewhere safe</li>
+        </ul>
+      </div>
+
+      <div class="feature-group">
+        <h3 class="feature-group__title">On mobile & tablet <span class="feature-group__tag feature-group__tag--new">New</span></h3>
+        <ul class="feature-bullets">
+          <li>The same app runs on Android phone and tablet (same accounts, same servers, same aggregation)</li>
+          <li>Touch-friendly interface (responsive grids, portrait navigation)</li>
+          <li>Touch player: tap for controls, double-tap for ±10 s, swipe for seek, brightness and volume</li>
+          <li>Picture-in-Picture: the video keeps playing in a thumbnail while you do something else</li>
+          <li>Cast to a Chromecast or a TV from mobile (Plex and Jellyfin)</li>
+          <li>Offline downloads (see above)</li>
+          <li>TV remains the primary platform, D-pad-first</li>
         </ul>
       </div>
 
@@ -560,9 +599,10 @@
             <tr><td>PIN profiles with real isolation</td><td class="compare-table__highlight">Yes</td><td>Yes</td><td>Yes</td></tr>
             <tr><td>Sort by IMDb/TMDb rating</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
             <tr><td>Offline downloads</td><td class="compare-table__highlight">Free</td><td>Plex Pass</td><td>Yes</td></tr>
+            <tr><td>Library backup & transfer between devices</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
             <tr><td>Automatic OTA updates</td><td class="compare-table__highlight">Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Mobile / tablet</td><td class="compare-table__highlight">Yes</td><td class="compare-table__highlight">Yes</td><td class="compare-table__highlight">Yes</td></tr>
             <tr><td>Play Store available</td><td>Soon</td><td class="compare-table__highlight">Yes</td><td class="compare-table__highlight">Yes</td></tr>
-            <tr><td>Mobile / tablet</td><td>Soon</td><td class="compare-table__highlight">Yes</td><td class="compare-table__highlight">Yes</td></tr>
           </tbody>
         </table>
       </div>
@@ -610,6 +650,7 @@
         <li>Native Leanback support</li>
         <li>Screensaver / Daydream mode with 3 styles + clock</li>
         <li>Voice search via the remote</li>
+        <li>Also runs on Android phone and tablet (touch player, gestures, Picture-in-Picture, Cast)</li>
       </ul>
     </div>
   </section>
@@ -622,23 +663,23 @@
       <p class="section__text section__text--center">Currently distributed via sideload from GitHub Releases. Subsequent updates are automatic (OTA) from inside the app.</p>
 
       <div class="download-grid">
-        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.46/PlexHubTV-1.0.46-armeabi-v7a.apk" data-apk="armeabi-v7a" class="download-card">
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.47/PlexHubTV-1.0.47-armeabi-v7a.apk" data-apk="armeabi-v7a" class="download-card">
           <div class="download-card__abi">armeabi-v7a</div>
           <div class="download-card__title">32 bit</div>
           <p class="download-card__devices">Mi Box S &middot; Fire TV Stick 4K &middot; older Android TV devices</p>
           <div class="download-card__cta">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
-            Download <span data-latest-version>v1.0.46</span>
+            Download <span data-latest-version>v1.0.47</span>
           </div>
         </a>
 
-        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.46/PlexHubTV-1.0.46-arm64-v8a.apk" data-apk="arm64-v8a" class="download-card download-card--featured">
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.47/PlexHubTV-1.0.47-arm64-v8a.apk" data-apk="arm64-v8a" class="download-card download-card--featured">
           <div class="download-card__abi">arm64-v8a</div>
           <div class="download-card__title">64 bit (recommended)</div>
           <p class="download-card__devices">Nvidia Shield &middot; recent Chromecast Google TV &middot; modern Android TV devices</p>
           <div class="download-card__cta">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
-            Download <span data-latest-version>v1.0.46</span>
+            Download <span data-latest-version>v1.0.47</span>
           </div>
         </a>
       </div>
@@ -685,8 +726,13 @@
       <div class="roadmap-grid">
         <div class="roadmap-item roadmap-item--done">
           <div class="roadmap-item__status">Now</div>
-          <h3 class="roadmap-item__title">Sideload <span data-latest-version>v1.0.46</span></h3>
-          <p class="roadmap-item__text">Cross-source aggregation, multi-server Plex, Jellyfin, IPTV/Xtream, Live TV EPG, PIN profiles, AI subtitles, multi-provider Skip Intro, dual-engine player, OTA self-update.</p>
+          <h3 class="roadmap-item__title">Sideload <span data-latest-version>v1.0.47</span></h3>
+          <p class="roadmap-item__text">Cross-source aggregation, multi-server Plex, Jellyfin, IPTV/Xtream, Live TV EPG, PIN profiles, AI subtitles (including self-hosted server), multi-provider Skip Intro, dual-engine player, <code>.phbx</code> backup & transfer, OTA self-update.</p>
+        </div>
+        <div class="roadmap-item roadmap-item--done">
+          <div class="roadmap-item__status">New</div>
+          <h3 class="roadmap-item__title">Mobile, tablet & Cast</h3>
+          <p class="roadmap-item__text">PlexHubTV now runs on Android phone and tablet: touch player, gestures, Picture-in-Picture, and Cast to a Chromecast or TV. TV remains the primary platform.</p>
         </div>
         <div class="roadmap-item roadmap-item--soon">
           <div class="roadmap-item__status">Soon</div>
@@ -699,19 +745,14 @@
           <p class="roadmap-item__text">Official Play Store distribution. No more manual sideload, no more "unknown sources" permission. Updates through the store.</p>
         </div>
         <div class="roadmap-item roadmap-item--later">
-          <div class="roadmap-item__status">Later</div>
-          <h3 class="roadmap-item__title">Mobile and tablet</h3>
-          <p class="roadmap-item__text">Extending PlexHubTV to mobile and tablet, while preserving consistency of use and cross-source aggregation.</p>
-        </div>
-        <div class="roadmap-item roadmap-item--later">
           <div class="roadmap-item__status">Studying</div>
           <h3 class="roadmap-item__title">Community addons</h3>
           <p class="roadmap-item__text">Plugins to add new third-party sources. Subject to a deep security review before opening up.</p>
         </div>
         <div class="roadmap-item roadmap-item--later">
           <div class="roadmap-item__status">Idea</div>
-          <h3 class="roadmap-item__title">Chromecast bridge</h3>
-          <p class="roadmap-item__text">Possibility to send content from the TV to a neighboring Chromecast (feasibility study).</p>
+          <h3 class="roadmap-item__title">Chromecast bridge TV → TV</h3>
+          <p class="roadmap-item__text">Send content directly from one TV to a neighboring Chromecast (distinct from the mobile Cast already available). Feasibility study.</p>
         </div>
       </div>
     </div>
@@ -824,6 +865,24 @@
         </div>
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
+            Can I transfer my whole setup to a new TV?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Yes. The Backup & transfer feature exports your entire setup — scraped ratings and synopses, posters, favorites, watchlist, profiles, resume points, server accounts, API keys and settings — into a single <code>.phbx</code> file. You copy it to the new device (via the file picker, a USB stick or a network share) and import it in Light mode (non-destructive merge) or Full mode (complete database copy). Integrity is verified with a SHA-256 checksum. Since the file contains your server credentials, keep it somewhere safe.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            Does PlexHubTV run on phone and tablet?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Yes, now it does. The same app runs on Android phone and tablet with a touch interface: tap for controls, double-tap to seek, swipe for brightness and volume, Picture-in-Picture, and Cast to a Chromecast or a TV. Your accounts and cross-source aggregation are identical. TV remains the primary, remote-first platform.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
             What will happen when the premium donation arrives?
             <span class="faq-item__icon">+</span>
           </button>
@@ -928,7 +987,7 @@
     revealElements.forEach(el => observer.observe(el));
   </script>
 
-  <!-- Auto-resolve latest APK from GitHub Releases API. Fallback = static v1.0.46 URLs above. -->
+  <!-- Auto-resolve latest APK from GitHub Releases API. Fallback = static v1.0.47 URLs above. -->
   <script>
   (async () => {
     try {

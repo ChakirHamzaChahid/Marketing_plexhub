@@ -519,7 +519,25 @@ nouvelles versions. Vous pouvez aussi vérifier manuellement :</p>
 <p>Une nouvelle version est téléchargée puis proposée à l'installation ; l'intégrité (SHA-256) est vérifiée
 avant l'installation.</p>
 <hr />
-<h2 id="14-faq-et-dépannage">14. FAQ et dépannage</h2>
+<h2 id="14-sauvegarde-et-transfert">14. Sauvegarde et transfert</h2>
+<p>PlexHubTV peut exporter <strong>tout votre travail</strong> — notes et synopsis récupérés, affiches, favoris, listes,
+profils, points de reprise, comptes serveurs, clés API et réglages — dans un seul fichier <strong>.phbx</strong>.
+Idéal pour <strong>changer de TV</strong> ou réinstaller sans tout reconfigurer.</p>
+<p><strong>Exporter :</strong> <em>Réglages → Bibliothèque &amp; Synchro → Sauvegarde &amp; transfert → « Exporter »</em>.
+Choisissez l'emplacement du fichier via le sélecteur Android (aucune permission de stockage n'est demandée).</p>
+<p><strong>Importer :</strong> sur le nouvel appareil, <em>… → « Importer »</em>, sélectionnez le fichier <strong>.phbx</strong>
+puis un mode :</p>
+<ul>
+<li><strong>Léger (recommandé)</strong> : fusion <strong>non destructive</strong> — favoris, profils, notes et réglages sont
+  ajoutés à ce qui existe déjà. Ré-importable à volonté.</li>
+<li><strong>Complet (avancé)</strong> : remplace intégralement la base locale par celle du fichier ; l'application
+  redémarre pour finaliser l'import.</li>
+</ul>
+<p>L'<strong>intégrité</strong> du fichier est vérifiée par empreinte <strong>SHA-256</strong> ; un fichier corrompu est refusé.</p>
+<p><strong>⚠️ Sécurité :</strong> le fichier <strong>.phbx</strong> contient vos <strong>identifiants de serveurs et clés API</strong> en
+clair (pour pouvoir les restaurer). <strong>Conservez-le en lieu sûr</strong> et ne le partagez pas.</p>
+<hr />
+<h2 id="15-faq-et-dépannage">15. FAQ et dépannage</h2>
 <p><strong>Du contenu manque ou une rangée est vide.</strong>
 Souvent, une synchronisation est encore en cours (voir la pastille de synchro en haut). Vous pouvez forcer
 une synchro dans <em>Réglages → Bibliothèque &amp; Synchro</em>.</p>
@@ -542,7 +560,7 @@ Utilisez le <strong>filtre de maturité</strong> dans le panneau Filtres des bib
 <em>Réglages → Bibliothèque &amp; Synchro → « Vider le cache et les données »</em>, ou <strong>Se déconnecter</strong> dans
 <em>Système &amp; À propos</em>.</p>
 <hr />
-<h2 id="15-confidentialité">15. Confidentialité</h2>
+<h2 id="16-confidentialité">16. Confidentialité</h2>
 <p>Les <strong>rapports de plantage</strong> (diagnostic) se règlent dans <em>Réglages → Système &amp; À propos → Confidentialité</em>.
 Un identifiant anonyme peut être copié pour le support. Aucune donnée personnelle identifiable n'est
 associée aux rapports.</p>

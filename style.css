@@ -1763,6 +1763,28 @@ ul  { list-style: none; }
   margin-bottom: 18px;
 }
 
+.feature-group__title .feature-group__tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-size: .62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 100px;
+  /* override the gradient text-fill inherited from the title */
+  -webkit-text-fill-color: initial;
+  background: rgba(148,163,184,.14);
+  color: var(--color-text-dim);
+  border: 1px solid rgba(148,163,184,.28);
+}
+.feature-group__title .feature-group__tag--new {
+  background: rgba(229,160,13,.14);
+  color: var(--color-accent);
+  border-color: rgba(229,160,13,.38);
+}
+
 .feature-bullets {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

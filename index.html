@@ -53,8 +53,8 @@
     "name": "PlexHubTV",
     "operatingSystem": "Android TV 8.0+",
     "applicationCategory": "MultimediaApplication",
-    "description": "Client Android TV unifié pour Plex multi-serveur, Jellyfin et IPTV/Xtream avec agrégation cross-source. Un même film présent sur plusieurs serveurs reste une seule fiche, avec choix de la source au lancement. Lecteur double moteur, profils PIN, sous-titres IA, Skip Intro multi-providers, EPG Live TV, sync Trakt, OTA self-update.",
-    "softwareVersion": "1.0.46",
+    "description": "Client Android TV (aussi mobile et tablette) unifié pour Plex multi-serveur, Jellyfin et IPTV/Xtream avec agrégation cross-source. Un même film présent sur plusieurs serveurs reste une seule fiche, avec choix de la source au lancement. Lecteur double moteur, profils PIN, sous-titres IA, Skip Intro multi-providers, EPG Live TV, sync Trakt, sauvegarde et transfert de bibliothèque entre appareils, Cast, OTA self-update.",
+    "softwareVersion": "1.0.47",
     "downloadUrl": "https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest",
     "offers": {
       "@type": "Offer",
@@ -110,7 +110,7 @@
         </a>
         <a href="#agregation" class="btn btn--secondary">Comment ça marche ?</a>
       </div>
-      <p class="hero__mini">Compatible Android TV 8.0+ &bull; Mises à jour automatiques (OTA) &bull; <span class="hero__mini-soft">Bientôt sur Google Play</span></p>
+      <p class="hero__mini">Android TV 8.0+ &bull; Aussi sur mobile &amp; tablette &bull; Mises à jour automatiques (OTA) &bull; <span class="hero__mini-soft">Bientôt sur Google Play</span></p>
     </div>
     <div class="hero__glow"></div>
   </section>
@@ -282,6 +282,7 @@
           <li>Choix de la source à la lecture (popup avec qualité, codec, serveur)</li>
           <li>Repli automatique si la source principale est indisponible</li>
           <li>Agrégation au niveau film, série, saison, épisode individuel et collection</li>
+          <li>Multi-comptes IPTV : toutes les versions d'un même contenu proposées, un flux mort est grisé et jamais lancé</li>
           <li>Filtres par serveur ou vue unifiée — au choix</li>
         </ul>
       </div>
@@ -293,13 +294,16 @@
           <li>Accueil Netflix-style avec carrousel hero plein écran</li>
           <li>Rangée « Pour vous » personnalisée</li>
           <li>« Continuer à regarder » avec reprise exacte par profil</li>
-          <li>Suggestions et recommandations IA (films similaires avec fallback Gemini)</li>
+          <li>Recommandations Moore Metrics : rangées « Pour vous » films et séries, et « Dans le même esprit » sur chaque fiche</li>
+          <li>Écran Découverte par caractéristiques (ambiance, dimensions) — uniquement des titres que vous possédez</li>
+          <li>Suggestions et films similaires (avec repli Gemini)</li>
           <li>Favoris d'acteurs avec rangée dédiée</li>
           <li>Hubs Plex (collections, On Deck, dernières acquisitions)</li>
           <li>Recherche cross-source instantanée (résultats locaux puis enrichissement réseau)</li>
           <li>Recherche vocale (microphone télécommande)</li>
           <li>Saut alphabétique dans la grille (lettres A-Z dans le panneau latéral)</li>
           <li>Filtres par genre, serveur, note, année</li>
+          <li>Filtre de maturité (palier d'âge : 7+, 13+, 16+, 18+, adulte)</li>
           <li>Tris par titre, note IMDb/TMDb, date d'ajout, date de sortie</li>
         </ul>
       </div>
@@ -313,6 +317,8 @@
           <li>Reprise de lecture exacte, scopée par profil</li>
           <li>Lecture automatique de l'épisode suivant</li>
           <li>Pré-chargement du prochain épisode (zéro temps de chargement entre épisodes)</li>
+          <li>Minuteur de sommeil (arrêt à l'heure choisie ou en fin d'épisode)</li>
+          <li>Auto-pause à la déconnexion du casque / des écouteurs</li>
           <li>Skip Intro multi-providers (chapitres Plex, IntroDB, AniSkip, ARM)</li>
           <li>Skip Recap et Skip Credits avec préférences par profil</li>
           <li>Sélection multi-pistes audio à la volée (sans interrompre la lecture)</li>
@@ -332,12 +338,15 @@
       <div class="feature-group">
         <h3 class="feature-group__title">Sous-titres IA</h3>
         <ul class="feature-bullets">
-          <li>Traduction streaming des sous-titres pendant la lecture</li>
-          <li>Modèles supportés : Groq Llama 3.3 70B et Gemini 2.5 Flash</li>
+          <li>Traduction des sous-titres dans la langue de votre choix pendant la lecture</li>
+          <li>Traduction de la piste embarquée ou active, pas seulement d'un fichier téléchargé</li>
+          <li>Trois fournisseurs : Groq Llama 3.3 70B, Gemini 2.5 Flash, ou votre propre serveur IA auto-hébergé (Ollama)</li>
+          <li>Serveur auto-hébergé : aucune clé cloud requise, tout reste chez vous</li>
           <li>Langue cible configurable</li>
           <li>Gestion des écritures de droite à gauche (arabe, hébreu, farsi, urdu, yiddish)</li>
-          <li>Recherche de sous-titres en ligne via OpenSubtitles</li>
-          <li>Clé API à fournir par l'utilisateur (jamais bundlée)</li>
+          <li>Recherche de sous-titres en ligne via deux fournisseurs : OpenSubtitles et SubDL</li>
+          <li>Choix des langues à télécharger, dégradation propre si un sous-titre est absent</li>
+          <li>Clé API cloud à fournir par l'utilisateur (jamais bundlée), stockée chiffrée sur l'appareil</li>
         </ul>
       </div>
 
@@ -385,6 +394,7 @@
         <ul class="feature-bullets">
           <li>Notes IMDb sur chaque affiche (via OMDb)</li>
           <li>Notes TMDb sur chaque affiche</li>
+          <li>Sur la fiche : notes et nombre de votes IMDb et TMDb, studio, pays, titre original, statut de série</li>
           <li>Tri de la bibliothèque par note</li>
           <li>Synopsis enrichis depuis la meilleure source</li>
           <li>Casting complet avec photos d'acteurs</li>
@@ -413,12 +423,43 @@
 
       <!-- Groupe Téléchargements -->
       <div class="feature-group">
-        <h3 class="feature-group__title">Téléchargements & offline</h3>
+        <h3 class="feature-group__title">Téléchargements & offline <span class="feature-group__tag">mobile</span></h3>
         <ul class="feature-bullets">
-          <li>Téléchargement de films et d'épisodes</li>
+          <li>Téléchargement de films et d'épisodes Plex et Jellyfin</li>
+          <li>Format Original par défaut (fichier direct, fiable) ou 720p / SD pour économiser les données</li>
+          <li>Choix de la source à télécharger pour un contenu multi-source</li>
           <li>Lecture offline sans connexion internet</li>
+          <li>Progression, débit temps réel et erreurs visibles, avec bouton Réessayer</li>
+          <li>Téléchargement en Wi-Fi par défaut (données mobiles activables)</li>
           <li>Reprise de progression synchronisée à la reconnexion</li>
-          <li>File d'attente de téléchargements avec progression</li>
+        </ul>
+      </div>
+
+      <!-- Groupe Sauvegarde & transfert -->
+      <div class="feature-group">
+        <h3 class="feature-group__title">Sauvegarde & transfert <span class="feature-group__tag feature-group__tag--new">Nouveau</span></h3>
+        <ul class="feature-bullets">
+          <li>Exportez tout votre travail dans un seul fichier <code>.phbx</code></li>
+          <li>Réplique notes et synopsis récupérés, affiches, favoris, watchlist, profils, points de reprise, comptes serveurs, clés API et réglages</li>
+          <li>Idéal pour migrer vers une nouvelle TV ou réinstaller sans tout reconfigurer</li>
+          <li>Mode Léger (fusion non destructive, ré-importable) ou Complet (copie intégrale de la base)</li>
+          <li>Transfert via le sélecteur de fichiers Android — aucune permission de stockage demandée</li>
+          <li>Intégrité vérifiée par empreinte SHA-256, import protégé contre les fichiers corrompus</li>
+          <li>Le fichier contient vos identifiants de serveurs : conservez-le en lieu sûr</li>
+        </ul>
+      </div>
+
+      <!-- Groupe Mobile & tablette -->
+      <div class="feature-group">
+        <h3 class="feature-group__title">Sur mobile & tablette <span class="feature-group__tag feature-group__tag--new">Nouveau</span></h3>
+        <ul class="feature-bullets">
+          <li>La même app tourne sur téléphone et tablette Android (mêmes comptes, mêmes serveurs, même agrégation)</li>
+          <li>Interface tactile adaptée (grilles responsives, navigation portrait)</li>
+          <li>Lecteur tactile : appui pour les contrôles, double-tap pour ±10 s, glisser pour l'avance, la luminosité et le volume</li>
+          <li>Picture-in-Picture : la vidéo continue dans une vignette pendant que vous faites autre chose</li>
+          <li>Cast vers un Chromecast ou une TV depuis le mobile (Plex et Jellyfin)</li>
+          <li>Téléchargements offline (voir ci-dessus)</li>
+          <li>TV reste la plateforme principale, pensée D-pad d'abord</li>
         </ul>
       </div>
 
@@ -572,9 +613,10 @@
             <tr><td>Profils PIN avec isolation réelle</td><td class="compare-table__highlight">Oui</td><td>Oui</td><td>Oui</td></tr>
             <tr><td>Tri par note IMDb/TMDb</td><td class="compare-table__highlight">Oui</td><td>Non</td><td>Non</td></tr>
             <tr><td>Téléchargement offline</td><td class="compare-table__highlight">Gratuit</td><td>Plex Pass</td><td>Oui</td></tr>
+            <tr><td>Sauvegarde & transfert de bibliothèque entre appareils</td><td class="compare-table__highlight">Oui</td><td>Non</td><td>Non</td></tr>
             <tr><td>Mises à jour automatiques (OTA)</td><td class="compare-table__highlight">Oui</td><td>Non</td><td>Non</td></tr>
+            <tr><td>Mobile / tablette</td><td class="compare-table__highlight">Oui</td><td class="compare-table__highlight">Oui</td><td class="compare-table__highlight">Oui</td></tr>
             <tr><td>Disponible Play Store</td><td>Bientôt</td><td class="compare-table__highlight">Oui</td><td class="compare-table__highlight">Oui</td></tr>
-            <tr><td>Mobile / tablette</td><td>Bientôt</td><td class="compare-table__highlight">Oui</td><td class="compare-table__highlight">Oui</td></tr>
           </tbody>
         </table>
       </div>
@@ -622,6 +664,7 @@
         <li>Support Leanback natif</li>
         <li>Mode économiseur d'écran (Daydream) avec 3 styles + horloge</li>
         <li>Recherche vocale via la télécommande</li>
+        <li>Fonctionne aussi sur téléphone et tablette Android (lecteur tactile, gestes, Picture-in-Picture, Cast)</li>
       </ul>
     </div>
   </section>
@@ -634,23 +677,23 @@
       <p class="section__text section__text--center">Distribution actuellement en sideload via GitHub Releases. Mises à jour suivantes automatiques (OTA) depuis l'app.</p>
 
       <div class="download-grid">
-        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.46/PlexHubTV-1.0.46-armeabi-v7a.apk" data-apk="armeabi-v7a" class="download-card">
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.47/PlexHubTV-1.0.47-armeabi-v7a.apk" data-apk="armeabi-v7a" class="download-card">
           <div class="download-card__abi">armeabi-v7a</div>
           <div class="download-card__title">32 bit</div>
           <p class="download-card__devices">Mi Box S &middot; Fire TV Stick 4K &middot; appareils Android TV anciens</p>
           <div class="download-card__cta">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
-            Télécharger <span data-latest-version>v1.0.46</span>
+            Télécharger <span data-latest-version>v1.0.47</span>
           </div>
         </a>
 
-        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.46/PlexHubTV-1.0.46-arm64-v8a.apk" data-apk="arm64-v8a" class="download-card download-card--featured">
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/download/v1.0.47/PlexHubTV-1.0.47-arm64-v8a.apk" data-apk="arm64-v8a" class="download-card download-card--featured">
           <div class="download-card__abi">arm64-v8a</div>
           <div class="download-card__title">64 bit (recommandé)</div>
           <p class="download-card__devices">Nvidia Shield &middot; Chromecast Google TV récent &middot; appareils Android TV modernes</p>
           <div class="download-card__cta">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
-            Télécharger <span data-latest-version>v1.0.46</span>
+            Télécharger <span data-latest-version>v1.0.47</span>
           </div>
         </a>
       </div>
@@ -697,8 +740,13 @@
       <div class="roadmap-grid">
         <div class="roadmap-item roadmap-item--done">
           <div class="roadmap-item__status">Maintenant</div>
-          <h3 class="roadmap-item__title">Sideload <span data-latest-version>v1.0.46</span></h3>
-          <p class="roadmap-item__text">Agrégation cross-source, Plex multi-serveur, Jellyfin, IPTV/Xtream, Live TV EPG, profils PIN, sous-titres IA, Skip Intro multi-providers, lecteur double moteur, OTA self-update.</p>
+          <h3 class="roadmap-item__title">Sideload <span data-latest-version>v1.0.47</span></h3>
+          <p class="roadmap-item__text">Agrégation cross-source, Plex multi-serveur, Jellyfin, IPTV/Xtream, Live TV EPG, profils PIN, sous-titres IA (dont serveur auto-hébergé), Skip Intro multi-providers, lecteur double moteur, sauvegarde & transfert <code>.phbx</code>, OTA self-update.</p>
+        </div>
+        <div class="roadmap-item roadmap-item--done">
+          <div class="roadmap-item__status">Nouveau</div>
+          <h3 class="roadmap-item__title">Mobile, tablette & Cast</h3>
+          <p class="roadmap-item__text">PlexHubTV tourne désormais sur téléphone et tablette Android : lecteur tactile, gestes, Picture-in-Picture, et Cast vers un Chromecast ou une TV. La TV reste la plateforme principale.</p>
         </div>
         <div class="roadmap-item roadmap-item--soon">
           <div class="roadmap-item__status">Bientôt</div>
@@ -711,19 +759,14 @@
           <p class="roadmap-item__text">Distribution officielle Play Store. Plus de sideload manuel, plus de permission « sources inconnues ». Mises à jour via le magasin.</p>
         </div>
         <div class="roadmap-item roadmap-item--later">
-          <div class="roadmap-item__status">Plus tard</div>
-          <h3 class="roadmap-item__title">Mobile et tablette</h3>
-          <p class="roadmap-item__text">Extension de PlexHubTV au mobile et à la tablette, en conservant la cohérence d'usage et l'agrégation cross-source.</p>
-        </div>
-        <div class="roadmap-item roadmap-item--later">
           <div class="roadmap-item__status">À l'étude</div>
           <h3 class="roadmap-item__title">Addons communautaires</h3>
           <p class="roadmap-item__text">Plugins pour ajouter de nouvelles sources tierces. Sous condition d'une revue sécurité approfondie avant ouverture.</p>
         </div>
         <div class="roadmap-item roadmap-item--later">
           <div class="roadmap-item__status">Idée</div>
-          <h3 class="roadmap-item__title">Chromecast bridge</h3>
-          <p class="roadmap-item__text">Possibilité d'envoyer un contenu de la TV vers un autre Chromecast voisin (étude de faisabilité).</p>
+          <h3 class="roadmap-item__title">Chromecast bridge TV → TV</h3>
+          <p class="roadmap-item__text">Envoyer un contenu directement d'une TV vers un autre Chromecast voisin (distinct du Cast mobile déjà disponible). Étude de faisabilité.</p>
         </div>
       </div>
     </div>
@@ -836,6 +879,24 @@
         </div>
         <div class="faq-item">
           <button class="faq-item__question" aria-expanded="false">
+            Puis-je transférer toute ma configuration vers une nouvelle TV ?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Oui. La fonction Sauvegarde & transfert exporte l'ensemble de votre travail — notes et synopsis récupérés, affiches, favoris, watchlist, profils, points de reprise, comptes serveurs, clés API et réglages — dans un seul fichier <code>.phbx</code>. Vous le copiez sur le nouvel appareil (via le sélecteur de fichiers, clé USB ou partage réseau) et l'importez en mode Léger (fusion non destructive) ou Complet (copie intégrale de la base). L'intégrité est vérifiée par empreinte SHA-256. Comme le fichier contient vos identifiants de serveurs, conservez-le en lieu sûr.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            PlexHubTV fonctionne-t-il sur téléphone et tablette ?
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>Oui, désormais. La même app tourne sur téléphone et tablette Android avec une interface tactile : appui pour les contrôles, double-tap pour avancer, glisser pour la luminosité et le volume, Picture-in-Picture, et Cast vers un Chromecast ou une TV. Vos comptes et votre agrégation cross-source sont identiques. La TV reste la plateforme principale, pensée pour la télécommande.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
             Que se passera-t-il quand la donation premium arrivera ?
             <span class="faq-item__icon">+</span>
           </button>
@@ -940,7 +1001,7 @@
     revealElements.forEach(el => observer.observe(el));
   </script>
 
-  <!-- Auto-resolve latest APK from GitHub Releases API. Fallback = static v1.0.46 URLs above. -->
+  <!-- Auto-resolve latest APK from GitHub Releases API. Fallback = static v1.0.47 URLs above. -->
   <script>
   (async () => {
     try {
