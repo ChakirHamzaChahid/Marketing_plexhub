@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide utilisateur PlexHubTV — Prise en main sur Android TV et mobile</title>
+
+  <meta name="description" content="Guide utilisateur complet de PlexHubTV : première connexion, agrégation multi-source (Plex, Jellyfin, IPTV), lecteur, sous-titres IA, profils PIN, Live TV, téléchargements et réglages.">
+  <meta name="author" content="PlexHubTV">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="canonical" href="https://www.plexhubtv.uk/guide.html">
+  <link rel="alternate" hreflang="fr" href="https://www.plexhubtv.uk/guide.html">
+  <link rel="alternate" hreflang="en" href="https://www.plexhubtv.uk/en/guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.plexhubtv.uk/guide.html">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://www.plexhubtv.uk/guide.html">
+  <meta property="og:title" content="Guide utilisateur PlexHubTV">
+  <meta property="og:description" content="Tout pour prendre en main PlexHubTV sur Android TV et mobile : connexion, agrégation, lecteur, Live TV, profils, sous-titres IA, réglages.">
+  <meta property="og:site_name" content="PlexHubTV">
+  <meta property="og:image" content="https://www.plexhubtv.uk/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PlexHubTV — Guide utilisateur">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guide utilisateur PlexHubTV">
+  <meta name="twitter:description" content="Tout pour prendre en main PlexHubTV sur Android TV et mobile : connexion, agrégation, lecteur, Live TV, profils, sous-titres IA, réglages.">
+  <meta name="twitter:image" content="https://www.plexhubtv.uk/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Guide-specific layout */
+    .guide-shell { padding-top: calc(var(--header-height) + 40px); padding-bottom: 80px; }
+    .guide-hero { text-align: center; padding: 20px 24px 40px; max-width: 800px; margin: 0 auto; }
+    .guide-hero__badge {
+      display: inline-block; font-size: .75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--color-accent);
+      border: 1px solid rgba(229,160,13,.3); padding: 6px 18px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .guide-hero__title { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 900; line-height: 1.15;
+      letter-spacing: -0.03em; margin-bottom: 16px; }
+    .guide-hero__subtitle { font-size: clamp(1rem, 1.5vw, 1.125rem); color: var(--color-text-dim);
+      max-width: 640px; margin: 0 auto 16px; }
+    .guide-hero__meta { font-size: .85rem; color: var(--color-text-dim); }
+    .guide-hero__meta span + span { margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--color-border); }
+
+    .guide-layout {
+      display: grid; grid-template-columns: 260px 1fr; gap: 48px;
+      max-width: var(--max-width); margin: 40px auto 0; padding: 0 24px;
+    }
+    .guide-toc {
+      position: sticky; top: calc(var(--header-height) + 24px);
+      align-self: start; max-height: calc(100vh - var(--header-height) - 48px); overflow-y: auto;
+      padding: 20px; border: 1px solid var(--color-border); border-radius: var(--radius);
+      background: var(--color-bg-alt);
+    }
+    .guide-toc__title { font-size: .75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--color-text-dim); margin-bottom: 14px; }
+    .guide-toc__list { display: flex; flex-direction: column; gap: 2px; }
+    .guide-toc__link { display: block; padding: 6px 10px; font-size: .85rem; color: var(--color-text-dim);
+      border-radius: var(--radius-sm); line-height: 1.4; border-left: 2px solid transparent; }
+    .guide-toc__link:hover { color: var(--color-text); background: rgba(255,255,255,.03); }
+    .guide-toc__link--active { color: var(--color-accent); border-left-color: var(--color-accent);
+      background: rgba(229,160,13,.08); }
+
+    .guide-article { min-width: 0; }
+    .guide-article h2 {
+      font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 800; letter-spacing: -0.02em;
+      margin: 56px 0 20px; scroll-margin-top: calc(var(--header-height) + 16px);
+    }
+    .guide-article h2:first-child { margin-top: 8px; }
+    .guide-article h3 {
+      font-size: clamp(1.15rem, 1.8vw, 1.3rem); font-weight: 700; color: var(--color-text);
+      margin: 36px 0 14px; scroll-margin-top: calc(var(--header-height) + 16px);
+    }
+    .guide-article p { color: var(--color-text-dim); margin: 12px 0; }
+    .guide-article strong { color: var(--color-text); font-weight: 700; }
+    .guide-article em { color: var(--color-text); }
+    .guide-article ul, .guide-article ol { margin: 12px 0 12px 22px; color: var(--color-text-dim); }
+    .guide-article li { margin: 6px 0; }
+    .guide-article li > strong:first-child { color: var(--color-text); }
+    .guide-article a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px;
+      text-decoration-thickness: 1px; }
+    .guide-article a:hover { color: var(--color-cta-hover); }
+    .guide-article code {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .85em;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      padding: 1px 6px; border-radius: 4px; color: var(--color-text);
+    }
+    .guide-article pre {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      padding: 16px 18px; border-radius: var(--radius); overflow-x: auto; margin: 16px 0; font-size: .85rem;
+    }
+    .guide-article pre code { background: none; border: none; padding: 0; }
+    .guide-article hr { border: none; height: 1px; background: var(--color-border); margin: 48px 0; }
+    .guide-article blockquote {
+      border-left: 3px solid var(--color-accent); background: rgba(229,160,13,.06);
+      padding: 12px 18px; margin: 16px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      color: var(--color-text-dim);
+    }
+    .guide-article blockquote strong, .guide-article blockquote em { color: var(--color-text); }
+    .guide-article table {
+      width: 100%; border-collapse: collapse; margin: 18px 0; font-size: .9rem;
+      border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden;
+    }
+    .guide-article thead { background: var(--color-bg-alt); }
+    .guide-article th, .guide-article td {
+      padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-dim);
+    }
+    .guide-article th { color: var(--color-text); font-weight: 600; font-size: .85rem;
+      text-transform: uppercase; letter-spacing: 0.05em; }
+    .guide-article tr:last-child td { border-bottom: none; }
+    .guide-article td strong { color: var(--color-text); }
+
+    .guide-cta {
+      margin: 72px auto 0; max-width: 720px; text-align: center;
+      padding: 40px 24px; background: var(--color-bg-alt);
+      border: 1px solid var(--color-border); border-radius: var(--radius);
+    }
+    .guide-cta h2 { font-size: clamp(1.4rem, 2.3vw, 1.8rem); font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .guide-cta p { color: var(--color-text-dim); margin-bottom: 24px; }
+
+    .guide-toc__toggle {
+      display: none;
+      background: var(--color-bg-alt); color: var(--color-text); border: 1px solid var(--color-border);
+      padding: 10px 16px; border-radius: var(--radius-sm); font-family: var(--font); font-weight: 600;
+      font-size: .9rem; cursor: pointer; width: 100%; text-align: left;
+    }
+    .guide-toc__toggle::after { content: "▾"; float: right; }
+
+    .back-top {
+      position: fixed; right: 20px; bottom: 20px; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--color-cta); color: #000; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transform: translateY(10px);
+      transition: opacity var(--transition), transform var(--transition), background var(--transition);
+      z-index: 900; box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    }
+    .back-top--visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .back-top:hover { background: var(--color-cta-hover); }
+    .back-top svg { width: 20px; height: 20px; }
+
+    @media (max-width: 1024px) {
+      .guide-layout { grid-template-columns: 220px 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .guide-layout { grid-template-columns: 1fr; gap: 24px; }
+      .guide-toc { position: static; max-height: none; padding: 12px; }
+      .guide-toc__title { display: none; }
+      .guide-toc__toggle { display: block; }
+      .guide-toc__list { display: none; margin-top: 12px; }
+      .guide-toc--open .guide-toc__list { display: flex; }
+      .guide-shell { padding-top: calc(var(--header-height) + 24px); }
+    }
+</style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Guide utilisateur PlexHubTV — Prise en main sur Android TV et mobile",
+        "name": "Guide utilisateur PlexHubTV",
+        "description": "Guide utilisateur complet de PlexHubTV : première connexion, agrégation multi-source (Plex, Jellyfin, IPTV), lecteur, sous-titres IA, profils PIN, Live TV, téléchargements et réglages.",
+        "inLanguage": "fr",
+        "datePublished": "2026-07-05",
+        "dateModified": "2026-07-05",
+        "url": "https://www.plexhubtv.uk/guide.html",
+        "author": {
+          "@type": "Person",
+          "name": "Chakir Hamza Chahid"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "PlexHubTV",
+          "url": "https://www.plexhubtv.uk/"
+        },
+        "image": "https://www.plexhubtv.uk/og-image.png",
+        "about": {
+          "@type": "SoftwareApplication",
+          "name": "PlexHubTV",
+          "operatingSystem": "Android TV 8.0+, Android 8.0+ (mobile)",
+          "applicationCategory": "MultimediaApplication"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.plexhubtv.uk/" },
+          { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://www.plexhubtv.uk/guide.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">Plex<span>HubTV</span></a>
+      <nav class="header__nav" id="nav">
+        <a href="/" class="header__link">Accueil</a>
+        <a href="/#agregation" class="header__link">Agrégation</a>
+        <a href="/#fonctionnalites" class="header__link">Fonctionnalités</a>
+        <a href="/#live-tv" class="header__link">Live TV</a>
+        <a href="/#telecharger" class="header__link">Téléchargement</a>
+        <a href="/guide.html" class="header__link header__link--active">Guide</a>
+        <a href="/#faq" class="header__link">FAQ</a>
+        <div class="header__lang" role="group" aria-label="Choix de la langue">
+          <a href="/guide.html" class="header__lang-item header__lang-item--active" lang="fr" aria-current="page">FR</a>
+          <span class="header__lang-sep" aria-hidden="true">|</span>
+          <a href="/en/guide.html" class="header__lang-item" lang="en" hreflang="en">EN</a>
+        </div>
+        <a href="/#telecharger" class="header__link header__link--cta">Télécharger</a>
+      </nav>
+      <button class="header__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== GUIDE ========== -->
+  <main class="guide-shell">
+    <div class="guide-hero">
+      <p class="guide-hero__badge">Documentation utilisateur</p>
+      <h1 class="guide-hero__title">Guide utilisateur PlexHubTV</h1>
+      <p class="guide-hero__subtitle">De la première connexion à la lecture, sur Android TV (télécommande) comme sur mobile (tactile).</p>
+      <p class="guide-hero__meta"><span>Lecture estimée : 12 min</span><span>PlexHubTV</span></p>
+    </div>
+
+    <div class="guide-layout">
+      <aside class="guide-toc" id="guideToc" aria-label="Sommaire">
+        <button class="guide-toc__toggle" id="tocToggle" aria-expanded="false">Sommaire</button>
+        <p class="guide-toc__title">Sommaire</p>
+        <div class="guide-toc__list" id="tocList"></div>
+      </aside>
+
+      <article class="guide-article" id="guideArticle">
+<h2 id="1-quest-ce-que-plexhubtv">1. Qu'est-ce que PlexHubTV ?</h2>
+<p>PlexHubTV est une application de <strong>streaming pour votre propre médiathèque</strong>. Au lieu de vous limiter à
+un seul serveur, elle <strong>rassemble plusieurs sources dans une interface unique</strong> façon Netflix :</p>
+<ul>
+<li><strong>Plex</strong> (serveurs Plex Media Server) ;</li>
+<li><strong>Jellyfin</strong> ;</li>
+<li><strong>Xtream / IPTV</strong> (comptes Xtream Codes, playlists M3U) ;</li>
+<li><strong>Backend PlexHub</strong> (le serveur maison qui agrège des sources IPTV).</li>
+</ul>
+<p>Quand un même film ou une même série existe <strong>sur plusieurs de vos serveurs</strong>, PlexHubTV les regroupe
+automatiquement : une seule fiche, un badge <strong>« Disponible sur N serveurs »</strong>, et le choix de la source
+au moment de lire.</p>
+<p>L'application fonctionne sur <strong>Android TV</strong> (Mi Box, Shield, box opérateur…) à la télécommande, et sur
+<strong>téléphone / tablette</strong> au tactile. Certaines fonctions sont réservées au mobile (téléchargements, Cast,
+incrustation vidéo, gestes tactiles) — elles sont signalées dans ce guide par la mention <strong>(mobile)</strong>.</p>
+<p>La lecture s'appuie sur deux moteurs (<strong>ExoPlayer</strong> et <strong>MPV</strong>) qui se relaient automatiquement pour lire
+un maximum de formats.</p>
+<hr />
+<h2 id="2-premier-lancement-pas-à-pas">2. Premier lancement (pas à pas)</h2>
+<h3 id="21-écran-dintroduction">2.1 Écran d'introduction</h3>
+<p>Au tout premier démarrage, une courte vidéo d'intro s'affiche. Vous pouvez appuyer sur <strong>« Passer »</strong>
+(en haut à droite) pour aller directement à la connexion.</p>
+<h3 id="22-se-connecter-à-une-source">2.2 Se connecter à une source</h3>
+<p>L'écran <strong>PlexHubTV</strong> propose trois types de source. Choisissez celle que vous voulez ajouter en premier :</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Ce dont vous avez besoin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plex</strong></td>
+<td>Un compte Plex (connexion par code, sans mot de passe à taper)</td>
+</tr>
+<tr>
+<td><strong>Jellyfin</strong></td>
+<td>L'adresse de votre serveur + identifiant + mot de passe</td>
+</tr>
+<tr>
+<td><strong>Xtream IPTV</strong></td>
+<td>L'URL du portail de votre fournisseur + identifiant + mot de passe</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Connexion Plex (recommandée par code PIN)</strong>
+1. Sélectionnez <strong>Plex</strong>, puis <strong>« Connexion par code PIN »</strong>.
+2. L'écran <strong>« Associer un compte »</strong> affiche un <strong>code</strong> et l'adresse <strong><code>plex.tv/link</code></strong>.
+3. Sur votre téléphone ou ordinateur, ouvrez <strong>plex.tv/link</strong>, connectez-vous et <strong>saisissez le code</strong>.
+4. L'application détecte la validation automatiquement et poursuit.
+   <em>(Une option « Connexion avancée (Token) » existe pour les utilisateurs expérimentés.)</em></p>
+<p><strong>Connexion Jellyfin</strong>
+- Renseignez <strong>URL du serveur</strong> (ex. <code>https://jellyfin.exemple.com</code>), <strong>Nom d'utilisateur</strong> et
+  <strong>Mot de passe</strong>, puis <strong>« Se connecter à Jellyfin »</strong>.</p>
+<p><strong>Connexion Xtream IPTV</strong>
+- Renseignez <strong>URL du portail</strong> (ex. <code>http://portail.exemple.com:8080</code>), identifiant et mot de passe,
+  puis <strong>« Se connecter à Xtream IPTV »</strong>.</p>
+<h3 id="23-choisir-vos-bibliothèques-plex-uniquement">2.3 Choisir vos bibliothèques (Plex uniquement)</h3>
+<p>Après une connexion Plex, l'écran <strong>« Choisissez vos bibliothèques »</strong> liste vos serveurs et leurs
+bibliothèques (Films / Séries). Cochez celles à synchroniser, puis <strong>« Confirmer »</strong>.
+<em>(Jellyfin et Xtream vont directement à la synchronisation, sans cette étape.)</em></p>
+<h3 id="24-première-synchronisation">2.4 Première synchronisation</h3>
+<p>PlexHubTV télécharge le catalogue de vos serveurs. L'écran de chargement affiche :</p>
+<ul>
+<li>un <strong>anneau doré</strong> avec le pourcentage global et le compteur <strong>« Serveur x/y »</strong> ;</li>
+<li>les <strong>phases</strong> : <em>Découverte › Bibliothèques › Extras › Finalisation</em> ;</li>
+<li>le <strong>temps écoulé</strong> et une <strong>estimation du temps restant</strong> ;</li>
+<li>le <strong>détail par serveur</strong> (statut, progression, éventuelles erreurs).</li>
+</ul>
+<p>Sur une grosse médiathèque, la première synchronisation peut prendre un moment ; les suivantes sont
+beaucoup plus rapides (mises à jour incrémentales en arrière-plan).</p>
+<h3 id="25-utiliser-lapp-sans-plex">2.5 Utiliser l'app sans Plex</h3>
+<p>Vous <strong>n'êtes pas obligé d'avoir un compte Plex</strong>. Une installation <strong>Jellyfin seul</strong> ou <strong>Xtream seul</strong>
+est parfaitement prise en charge : l'accueil et les bibliothèques se remplissent avec le contenu de ces
+sources.</p>
+<p><strong>Ajouter Plex (ou une autre source) plus tard</strong> : <em>Réglages → Sources &amp; Serveurs</em> →
+<strong>« Connecter un compte Plex »</strong> (ou les sections Jellyfin / Xtream / Backend).</p>
+<hr />
+<h2 id="3-se-repérer-dans-lapplication">3. Se repérer dans l'application</h2>
+<h3 id="31-sur-android-tv-télécommande">3.1 Sur Android TV (télécommande)</h3>
+<p>La navigation se fait avec le <strong>pavé directionnel (D-pad)</strong>. La <strong>barre du haut</strong> contient :</p>
+<ul>
+<li><strong>Onglets</strong> : <strong>Accueil</strong>, <strong>Séries</strong>, <strong>Films</strong>, <strong>Ma liste</strong>, <strong>Historique</strong>, <strong>TV en direct</strong>.</li>
+<li><strong>Actions</strong> (à droite) : <strong>Découvrir</strong> (recommandations), <strong>Rechercher</strong>, <strong>Paramètres</strong>,
+  l'avatar pour <strong>changer de profil</strong>, l'<strong>horloge</strong>, et des <strong>pastilles d'état</strong> (serveurs hors-ligne,
+  clé API backend manquante, synchronisations en cours).</li>
+</ul>
+<h3 id="32-sur-mobile-tactile">3.2 Sur mobile (tactile)</h3>
+<p>La navigation se fait par la <strong>barre du bas</strong> : <strong>Accueil</strong>, <strong>Séries</strong>, <strong>Films</strong>, <strong>TV en direct</strong>,
+<strong>Ma liste</strong>, <strong>Historique</strong>, <strong>Téléchargements</strong> <em>(mobile)</em>. La recherche, les réglages et le profil
+restent accessibles depuis la barre du haut. Le bouton <strong>Cast</strong> <em>(mobile)</em> apparaît quand un appareil
+Chromecast est disponible.</p>
+<hr />
+<h2 id="4-lécran-daccueil">4. L'écran d'accueil</h2>
+<p>L'accueil s'organise en <strong>rangées horizontales</strong> :</p>
+<ul>
+<li><strong>Continuer à regarder</strong> — reprenez là où vous vous êtes arrêté ;</li>
+<li><strong>Films / Séries récemment ajoutés</strong> ;</li>
+<li><strong>Ma liste</strong> — vos favoris ;</li>
+<li><strong>Recommandé pour vous</strong> et des rangées personnalisées (« Parce que vous avez regardé… »,
+  « Reprendre ce soir », « À découvrir dans [genre] »…) ;</li>
+<li><strong>Films / Séries pour vous</strong> — suggestions Moore Metrics (nécessite une clé API, voir §12).</li>
+</ul>
+<p><strong>Aperçu au focus</strong> : quand vous survolez une affiche, une <strong>grande image d'ambiance</strong> apparaît en fond
+avec le type (Film / Série / Épisode) et, le cas échéant, la mention <strong>« Plusieurs serveurs »</strong>.
+Sélectionnez une affiche pour ouvrir sa fiche.</p>
+<p>Vous pouvez <strong>réorganiser ou masquer les rangées</strong> de l'accueil dans <em>Réglages → Apparence &amp; Profil</em>.</p>
+<hr />
+<h2 id="5-trouver-du-contenu">5. Trouver du contenu</h2>
+<h3 id="51-bibliothèque-films--séries">5.1 Bibliothèque Films / Séries</h3>
+<p>Les onglets <strong>Films</strong> et <strong>Séries</strong> affichent une <strong>grille</strong>. Vous disposez de :</p>
+<ul>
+<li>un <strong>panneau Filtres</strong> regroupant : <strong>Serveur</strong>, <strong>Source</strong>, <strong>Genre</strong>, <strong>Âge / maturité</strong>
+  (Tout, 7+, 13+, 16+, 18+, XXX) et <strong>Tri</strong> (Date d'ajout, Titre, Année, Note) ;</li>
+<li>un <strong>saut alphabétique</strong> pour bondir à une lettre ;</li>
+<li>le nombre de <strong>colonnes</strong> réglable (6 ou 7) dans les réglages.</li>
+</ul>
+<h3 id="52-recherche">5.2 Recherche</h3>
+<p>Ouvrez <strong>Rechercher</strong> : tapez un titre, utilisez la <strong>recherche vocale</strong>, ou une <strong>recherche
+intelligente</strong> en langage naturel (ex. « films de science-fiction des années 90 de moins de 2 h »)
+lorsque l'assistant IA est configuré.</p>
+<h3 id="53-découvrir">5.3 Découvrir</h3>
+<p>Le bouton <strong>Découvrir</strong> ouvre la recommandation par <strong>caractéristiques</strong> (Moore Metrics) : réglez des
+critères et obtenez des suggestions <strong>limitées à votre médiathèque</strong> (donc directement lisibles).
+Nécessite une clé API Moore Metrics (voir §12).</p>
+<hr />
+<h2 id="6-la-fiche-dun-film-ou-dune-série">6. La fiche d'un film ou d'une série</h2>
+<p>La fiche présente l'affiche, le synopsis, la distribution, le pourcentage de correspondance et des
+<strong>badges techniques</strong> (HD, 4K, HDR, Dolby Vision, Atmos, DTS…).</p>
+<ul>
+<li><strong>« Disponible sur »</strong> : les <strong>serveurs</strong> qui possèdent ce titre s'affichent en pastilles (3 visibles +
+  une pastille <strong>+N</strong> qui ouvre la liste complète). C'est la face visible du multi-source.</li>
+<li><strong>Onglets</strong> : <strong>Épisodes</strong>, <strong>Similaires</strong>, <strong>Collections</strong>, <strong>Bandes-annonces</strong>, et
+  <strong>« Dans le même esprit »</strong> (Moore Metrics).</li>
+<li><strong>Actions</strong> : <strong>Lecture</strong>, <strong>Télécharger</strong> <em>(mobile)</em>, <strong>Ajouter / Retirer des favoris</strong>,
+  <strong>Actualiser depuis TMDB</strong>, <strong>Masquer du hub</strong>, <strong>Corriger les métadonnées</strong> (Scrapper),
+  ajout à une <strong>playlist</strong>.</li>
+</ul>
+<p>Pour une <strong>série</strong>, l'onglet Épisodes liste les saisons et épisodes : vous pouvez <strong>Marquer comme vu</strong>,
+mettre en favori, et suivre la progression épisode par épisode.</p>
+<p><strong>Reprise</strong> : si vous aviez commencé un titre, une fenêtre propose <strong>« Reprendre »</strong> ou
+<strong>« Depuis le début »</strong>.</p>
+<hr />
+<h2 id="7-regarder--le-lecteur">7. Regarder : le lecteur</h2>
+<h3 id="71-contrôles-de-base">7.1 Contrôles de base</h3>
+<p>Lecture / pause, <strong>retour 10 s</strong> / <strong>avance 30 s</strong>, chapitre précédent / suivant, et <strong>épisode suivant</strong>
+avec compte à rebours (lecture automatique activable dans les réglages).</p>
+<h3 id="72-choisir-la-source-multi-source">7.2 Choisir la source (multi-source)</h3>
+<p>Si un titre est disponible sur plusieurs serveurs, une fenêtre <strong>« Choisir la source »</strong> apparaît :
+chaque source indique langues, HDR et résolution. Un badge <strong>Reprendre</strong> signale une lecture en cours ;
+une source marquée <strong>Indisponible</strong> (flux cassé) ne peut pas être sélectionnée.</p>
+<h3 id="73-sous-titres">7.3 Sous-titres</h3>
+<ul>
+<li><strong>Télécharger</strong> des sous-titres depuis <strong>OpenSubtitles</strong> ou <strong>SubDL</strong> (nécessite les clés / identifiants
+  correspondants, voir §12) ;</li>
+<li><strong>Traduire les sous-titres (IA)</strong> vers votre langue à la volée ;</li>
+<li>ajuster le <strong>style</strong> et la <strong>synchronisation</strong> des sous-titres.</li>
+</ul>
+<h3 id="74-passer-lintro-et-le-générique">7.4 Passer l'intro et le générique</h3>
+<p>Quand des repères existent, des boutons <strong>Passer l'intro</strong>, <strong>Passer le récap</strong> et <strong>Passer le générique</strong>
+apparaissent. Le comportement se règle en <strong>automatique</strong>, <strong>bouton</strong> ou <strong>désactivé</strong>
+(<em>Réglages → Lecture &amp; Sous-titres</em>).</p>
+<h3 id="75-confort-et-menu--plus">7.5 Confort et menu « Plus »</h3>
+<ul>
+<li><strong>Minuterie de sommeil</strong> : arrêt après 15 / 30 / 45 / 60 min ou à la fin de l'épisode.</li>
+<li><strong>Format d'image</strong> : <strong>Ajusté</strong>, <strong>Rempli</strong>, <strong>Zoom</strong>.</li>
+<li><strong>Menu Plus</strong> : qualité, vitesse, synchro audio / sous-titres, <strong>égaliseur audio</strong>, <strong>statistiques
+  détaillées</strong>, chapitres, file d'attente.</li>
+<li><strong>Moteur de lecture</strong> : <strong>ExoPlayer</strong> ou <strong>MPV</strong> (avec bascule automatique si une source échoue).</li>
+</ul>
+<h3 id="76-spécificités-mobile">7.6 Spécificités mobile</h3>
+<ul>
+<li><strong>Gestes tactiles</strong> <em>(mobile)</em> : double-tap à gauche / droite = ±10 s ; glissé horizontal = navigation ;
+  glissé vertical à gauche = <strong>luminosité</strong>, à droite = <strong>volume</strong>.</li>
+<li><strong>Incrustation vidéo (PiP)</strong> <em>(mobile)</em> : continuez la lecture dans une petite fenêtre.</li>
+<li><strong>Cast / Chromecast</strong> <em>(mobile)</em> : envoyez la lecture vers un appareil Chromecast.</li>
+</ul>
+<hr />
+<h2 id="8-tv-en-direct--iptv">8. TV en direct / IPTV</h2>
+<p>L'onglet <strong>TV en direct</strong> donne accès à vos chaînes :</p>
+<ul>
+<li><strong>liste et recherche</strong> de chaînes, avec <strong>favoris</strong> ;</li>
+<li><strong>changement de source</strong> : playlist M3U ou backend Xtream ;</li>
+<li><strong>guide des programmes (EPG)</strong> : ouvrez le guide pour voir <strong>En cours</strong>, <strong>Ensuite</strong> et <strong>À venir</strong> ;</li>
+<li><strong>zapping rapide</strong> pour changer de chaîne sans quitter la lecture ;</li>
+<li>lecture <strong>plein écran</strong>.</li>
+</ul>
+<hr />
+<h2 id="9-profils-et-contrôle-parental">9. Profils et contrôle parental</h2>
+<ul>
+<li><strong>« Qui regarde ? »</strong> : plusieurs profils avec avatars ; chaque profil a ses favoris, son historique et
+  ses préférences.</li>
+<li><strong>Profil Enfants</strong> : un profil marqué <strong>« Enfant »</strong> limite le contenu selon l'âge.</li>
+<li><strong>PIN par profil</strong> : protégez un profil par un code (badge <strong>« Protégé par PIN »</strong>).</li>
+<li><strong>Contrôle parental</strong> : dans <em>Réglages → Apparence &amp; Profil</em>, définissez un <strong>code parental</strong> —
+  requis pour <strong>quitter le profil enfant</strong>.</li>
+<li>Le <strong>filtre de maturité</strong> (7+, 13+, 16+, 18+, XXX) se règle dans la <strong>vue Bibliothèque</strong>
+  (panneau Filtres), pas dans les Réglages.</li>
+</ul>
+<hr />
+<h2 id="10-téléchargements-mobile">10. Téléchargements (mobile)</h2>
+<p><em>Disponible uniquement sur mobile.</em> Depuis la fiche d'un film ou épisode, appuyez sur <strong>Télécharger</strong> :</p>
+<ul>
+<li>choisissez la <strong>qualité</strong> : <strong>Original</strong>, <strong>720p (éco données)</strong> ou <strong>SD (éco données)</strong> ;</li>
+<li>choisissez la <strong>source</strong> si le titre est multi-serveurs ;</li>
+<li>suivez le <strong>statut</strong> (En attente, Téléchargement, Téléchargé, En pause, Échec) et l'espace de stockage ;</li>
+<li><strong>regardez hors-ligne</strong> une fois le téléchargement terminé.</li>
+</ul>
+<p>Les téléchargements se font en <strong>Wi-Fi</strong> par défaut ; activez <strong>« Télécharger via données mobiles »</strong> dans
+<em>Réglages → Téléchargements</em> si besoin.</p>
+<hr />
+<h2 id="11-les-réglages-en-détail">11. Les Réglages en détail</h2>
+<p>Le menu <strong>Réglages</strong> est organisé en <strong>7 rubriques par intention</strong> (sur TV : deux volets ; sur mobile :
+liste puis détail) :</p>
+<ol>
+<li><strong>Apparence &amp; Profil</strong> — profils, changement d'utilisateur Plex, thème, <strong>couleur d'accentuation</strong>,
+   contour / flou du texte, colonnes de la grille, langue des métadonnées, <strong>disposition de l'accueil</strong>
+   (réordonner / masquer les rangées), <strong>rangées serveur</strong>, <strong>code parental</strong>.</li>
+<li><strong>Lecture &amp; Sous-titres</strong> — qualité vidéo, moteur (ExoPlayer / MPV), lecture auto de l'épisode suivant,
+   passer l'intro / le générique, langues audio et sous-titres préférées, <strong>2 langues de sous-titres à
+   télécharger</strong>, <strong>traduction IA des sous-titres</strong> (modèle + langue cible + clé).</li>
+<li><strong>Sources &amp; Serveurs</strong> — Plex, <strong>Backend PlexHub</strong>, serveurs <strong>Jellyfin</strong>, <strong>IPTV / Xtream</strong> (comptes
+   et catégories), serveur par défaut, <strong>visibilité des serveurs</strong> (masquer un serveur des bibliothèques
+   unifiées), état des serveurs, chaînes TV.</li>
+<li><strong>Bibliothèque &amp; Synchro</strong> — bibliothèques synchronisées, <strong>forcer la synchronisation</strong>,
+   <strong>fréquence de synchronisation</strong> (à chaque lancement, toutes les heures, toutes les 6 h, toutes les
+   12 h, quotidienne, manuelle), suivi de synchro par source, <strong>synchro des notes</strong> (TMDb / OMDb),
+   <strong>vider le cache</strong>.</li>
+<li><strong>Intégrations &amp; Clés API</strong> — Trakt.tv, appairage TV, Scrapper, <strong>Recommandations IA</strong> (URL + clé),
+   et les <strong>clés API</strong> (TMDb, OMDb, OpenSubtitles, Moore Metrics, SubDL).</li>
+<li><strong>Téléchargements</strong> <em>(mobile uniquement, masqué sur TV)</em> — données mobiles, téléchargements simultanés,
+   connexions par serveur, mode de vérification.</li>
+<li><strong>Système &amp; À propos</strong> — économiseur d'écran, <strong>mises à jour</strong>, <strong>confidentialité</strong> (rapports de
+   plantage), mentions légales, débogage, version, licences, <strong>se déconnecter</strong>.</li>
+</ol>
+<hr />
+<h2 id="12-intégrations-et-clés-api">12. Intégrations et clés API</h2>
+<p>Plusieurs fonctions s'appuient sur des services externes. La plupart nécessitent une <strong>clé API que vous
+saisissez</strong> dans <em>Réglages → Intégrations &amp; Clés API</em> ; sans clé, la fonction reste inactive (avec un
+message d'invite).</p>
+<ul>
+<li><strong>Trakt.tv</strong> — synchronise votre activité de visionnage (scrobble, liste à voir). Appairage par code / QR.
+  <em>Selon la version : si Trakt n'est pas configuré dans votre build, l'écran affiche « Trakt.tv n'est pas
+  configuré dans cette version ».</em></li>
+<li><strong>Moore Metrics</strong> — recommandations (rangées d'accueil, onglet « Dans le même esprit », écran Découvrir).
+  Nécessite une clé API (quota mensuel).</li>
+<li><strong>Sous-titres</strong> — <strong>OpenSubtitles</strong> (clé API <strong>+ identifiant + mot de passe</strong> pour télécharger) et
+  <strong>SubDL</strong> (clé API).</li>
+<li><strong>Traduction IA des sous-titres</strong> — au choix : <strong>serveur IA auto-hébergé</strong>, <strong>Groq Llama 3.3 70B</strong> ou
+  <strong>Gemini 2.0 Flash</strong> (clé correspondante requise).</li>
+<li><strong>Métadonnées &amp; notes</strong> — <strong>TMDb</strong> (métadonnées, affiches) et <strong>OMDb</strong> (notes IMDb).</li>
+<li><strong>Appairage TV</strong> — configurez votre TV depuis un téléphone / ordinateur (code + QR) pour éviter de tout
+  saisir à la télécommande.</li>
+</ul>
+<hr />
+<h2 id="13-mises-à-jour-de-lapplication">13. Mises à jour de l'application</h2>
+<p>Sur les versions <strong>sideload</strong> (installées hors Play Store), PlexHubTV vérifie automatiquement les
+nouvelles versions. Vous pouvez aussi vérifier manuellement :</p>
+<p><em>Réglages → Système &amp; À propos → Mises à jour → </em><em>« Vérifier maintenant »</em>**.</p>
+<p>Une nouvelle version est téléchargée puis proposée à l'installation ; l'intégrité (SHA-256) est vérifiée
+avant l'installation.</p>
+<hr />
+<h2 id="14-faq-et-dépannage">14. FAQ et dépannage</h2>
+<p><strong>Du contenu manque ou une rangée est vide.</strong>
+Souvent, une synchronisation est encore en cours (voir la pastille de synchro en haut). Vous pouvez forcer
+une synchro dans <em>Réglages → Bibliothèque &amp; Synchro</em>.</p>
+<p><strong>Une pastille « serveur hors-ligne » s'affiche en haut.</strong>
+Un ou plusieurs serveurs ne répondent pas. Ouvrez la pastille pour voir lesquels, ou activez / désactivez
+des serveurs dans <em>Réglages → Sources &amp; Serveurs</em>.</p>
+<p><strong>Une pastille signale une « clé API backend manquante ».</strong>
+Le backend PlexHub est configuré mais sa clé (X-API-Key) est vide. Ouvrez la pastille, elle vous mène au
+champ à remplir dans <em>Intégrations &amp; Clés API</em>.</p>
+<p><strong>La lecture échoue ou une source est indisponible.</strong>
+Choisissez une <strong>autre source</strong> dans la fenêtre « Choisir la source » (un titre peut exister sur plusieurs
+serveurs). Le lecteur tente aussi automatiquement une bascule de moteur / de source.</p>
+<p><strong>Les sous-titres téléchargés ne s'affichent pas.</strong>
+Vérifiez la clé API OpenSubtitles (et l'<strong>identifiant + mot de passe</strong>, requis pour télécharger) ou la clé
+SubDL dans <em>Intégrations &amp; Clés API</em>.</p>
+<p><strong>Je veux masquer le contenu adulte.</strong>
+Utilisez le <strong>filtre de maturité</strong> dans le panneau Filtres des bibliothèques, et un <strong>profil Enfant</strong> +
+<strong>code parental</strong> pour verrouiller.</p>
+<p><strong>Comment repartir de zéro ?</strong>
+<em>Réglages → Bibliothèque &amp; Synchro → « Vider le cache et les données »</em>, ou <strong>Se déconnecter</strong> dans
+<em>Système &amp; À propos</em>.</p>
+<hr />
+<h2 id="15-confidentialité">15. Confidentialité</h2>
+<p>Les <strong>rapports de plantage</strong> (diagnostic) se règlent dans <em>Réglages → Système &amp; À propos → Confidentialité</em>.
+Un identifiant anonyme peut être copié pour le support. Aucune donnée personnelle identifiable n'est
+associée aux rapports.</p>
+<p>Politique de confidentialité complète : <a href="privacy-policy-fr.md">Français</a> · <a href="privacy-policy-en.md">English</a>.</p>
+
+        <div class="guide-cta">
+          <h2>Prêt à installer PlexHubTV ?</h2>
+          <p>Téléchargez l'APK adapté à votre TV, puis laissez l'OTA s'occuper des mises à jour.</p>
+          <a href="/#telecharger" class="btn btn--primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+            Télécharger <span data-latest-version></span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <button class="back-top" id="backTop" aria-label="Retour en haut" title="Retour en haut">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"/></svg>
+  </button>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="header__logo">Plex<span>HubTV</span></a>
+        <p class="footer__tagline">Tous vos serveurs. Tous vos flux. Une seule fiche.</p>
+      </div>
+      <nav class="footer__links" aria-label="Liens secondaires">
+        <a href="/#agregation" class="footer__link">Agrégation</a>
+        <a href="/#fonctionnalites" class="footer__link">Fonctionnalités</a>
+        <a href="https://github.com/ChakirHamzaChahid/PlexhubTV_Release/releases/latest" class="footer__link">Releases</a>
+        <a href="/#roadmap" class="footer__link">Roadmap</a>
+        <a href="/#faq" class="footer__link">FAQ</a>
+      </nav>
+    </div>
+    <div class="container footer__legal">
+      <p>PlexHubTV est un client tiers, indépendant. Plex est une marque déposée de Plex GmbH. Jellyfin est un logiciel libre sous licence GPL v2. PlexHubTV n'est ni affilié, ni sponsorisé, ni approuvé par Plex GmbH ou par le projet Jellyfin.</p>
+      <p>Construit sur des composants open-source largement reconnus de la communauté Android. Merci à ces projets.</p>
+      <p class="footer__copy">&copy; 2026 PlexHubTV.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Sticky header shadow */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('header--scrolled', window.scrollY > 20);
+    });
+
+    /* Mobile burger */
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('header__nav--open');
+      burger.classList.toggle('header__burger--open');
+    });
+
+    /* Build TOC from h2 in the article */
+    const article = document.getElementById('guideArticle');
+    const tocList = document.getElementById('tocList');
+    const headings = article.querySelectorAll('h2[id]');
+    const tocLinks = [];
+    headings.forEach(h => {
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'guide-toc__link';
+      a.textContent = h.textContent;
+      tocList.appendChild(a);
+      tocLinks.push(a);
+    });
+
+    /* Scroll-spy */
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = tocList.querySelector('a[href="#' + entry.target.id + '"]');
+        if (!link) return;
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('guide-toc__link--active'));
+          link.classList.add('guide-toc__link--active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    headings.forEach(h => spy.observe(h));
+
+    /* Smooth scroll with header offset */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length <= 1) return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
+        history.replaceState(null, '', href);
+        document.getElementById('nav').classList.remove('header__nav--open');
+        document.getElementById('burger').classList.remove('header__burger--open');
+      });
+    });
+
+    /* Back to top */
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('back-top--visible', window.scrollY > 600);
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* Mobile TOC toggle */
+    const tocToggle = document.getElementById('tocToggle');
+    const tocEl = document.getElementById('guideToc');
+    if (tocToggle) {
+      tocToggle.addEventListener('click', () => {
+        const open = tocEl.classList.toggle('guide-toc--open');
+        tocToggle.setAttribute('aria-expanded', String(open));
+      });
+      tocList.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' && window.innerWidth <= 768) {
+          tocEl.classList.remove('guide-toc--open');
+          tocToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+
+  <!-- Auto-resolve latest APK version from GitHub Releases API. Fallback = empty (button still works via anchor). -->
+  <script>
+  (async () => {
+    try {
+      const r = await fetch('https://api.github.com/repos/ChakirHamzaChahid/PlexhubTV_Release/releases/latest', { headers: { 'Accept': 'application/vnd.github+json' } });
+      if (!r.ok) return;
+      const rel = await r.json();
+      if (rel && rel.tag_name) {
+        document.querySelectorAll('[data-latest-version]').forEach(el => { el.textContent = rel.tag_name; });
+      }
+    } catch (e) { /* silent */ }
+  })();
+  </script>
+
+</body>
+</html>
