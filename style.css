@@ -287,6 +287,10 @@ ul  { list-style: none; }
   transform: translateY(0);
   transition: opacity .6s ease, transform .6s ease;
 }
+.demo-more-title {
+  margin: 56px 0 20px;
+  font-size: 1.25rem;
+}
 .demo-video {
   width: 100%;
   display: block;

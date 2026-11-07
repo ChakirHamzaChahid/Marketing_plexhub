@@ -15,7 +15,8 @@ Déployé sur [www.plexhubtv.uk](https://www.plexhubtv.uk) via GitHub Pages (CNA
 ├── robots.txt                          ← SEO
 ├── sitemap.xml                         ← SEO multilingue (hreflang xhtml:link)
 ├── CNAME                               ← www.plexhubtv.uk
-├── Screen_recording_*.webm             ← Démo vidéo intégrée dans la section #demo
+├── Screen_recording_*.webm             ← Ancienne démo (plus référencée)
+├── video/                              ← Vidéo pub + présentation FR/EN (720p) + poster, section #demo
 ├── og-image.png                        ← Open Graph FR 1200×630
 ├── og-image-en.png                     ← Open Graph EN 1200×630
 ├── favicon.{ico,svg}                   ← Favicons multi-format
