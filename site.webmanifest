@@ -1,6 +1,6 @@
 {
-  "name": "PlexHubTV",
-  "short_name": "PlexHubTV",
+  "name": "FlexHubTV",
+  "short_name": "FlexHubTV",
   "description": "Tous vos serveurs Plex, Jellyfin et IPTV dans une seule app Android TV.",
   "icons": [
     {

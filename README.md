@@ -1,6 +1,6 @@
 # Marketing_plexhub
 
-Site marketing de **PlexHubTV** — l'app Android TV qui unifie Plex, Jellyfin et IPTV/Xtream.
+Site marketing de **FlexHubTV** — l'app Android TV qui unifie Plex, Jellyfin et IPTV/Xtream.
 
 Déployé sur [www.plexhubtv.uk](https://www.plexhubtv.uk) via GitHub Pages (CNAME → custom domain).
 
@@ -48,8 +48,8 @@ HTML/CSS vanilla, zéro framework, zéro build step. Inter via Google Fonts.
 
 ## TODO restant
 
-- Remplacer `og-image.png` (mockup stylisé v1) par une vraie capture du Home PlexHubTV quand la dernière passe UI sera prête.
+- Remplacer `og-image.png` (mockup stylisé v1) par une vraie capture du Home FlexHubTV quand la dernière passe UI sera prête.
 - Quand donations actives : retirer le `disabled` du bouton `#soutenir` + brancher l'URL.
 - Quand Play Store live : remplacer les mentions « Bientôt sur Google Play » par le badge officiel.
 
-© 2026 PlexHubTV.
+© 2026 FlexHubTV.
