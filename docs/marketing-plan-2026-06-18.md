@@ -1,4 +1,6 @@
-# Plan de refonte landing PlexHubTV — 2026-06-18
+# Plan de refonte landing FlexHubTV — 2026-06-18
+
+> Note (nov. 2026) : l'application a été renommée **FlexHubTV** (anciennement PlexHubTV). Ce document daté de juin 2026 a été mis à jour pour le nom seulement ; versions, fonctionnalités et noms de fichiers/dépôts (APK, `PlexhubTV_Release`, `PlexHubTV_new`) restent ceux de l'époque.
 
 > **Auteur** : refonte assistée par Claude, brief chakir.
 > **Repo** : `ChakirHamzaChahid/Marketing_plexhub` (déployé sur `www.plexhubtv.uk`).
@@ -32,7 +34,7 @@
 
 1. **Header** (sticky, blur) — logo wordmark + nav + CTA APK
 2. **Hero** — promesse multi-source + sous-titre bénéfice + CTA APK + CTA donation
-3. **Pourquoi PlexHubTV** (storytelling court, 3 paragraphes) — le « pourquoi cette app existe »
+3. **Pourquoi FlexHubTV** (storytelling court, 3 paragraphes) — le « pourquoi cette app existe »
 4. **Sources unifiées** (NEUF) — 4 cards : Plex, Jellyfin, Xtream Codes, M3U
 5. **Démo vidéo** (existant, garder le `.webm` 7,6 Mo)
 6. **Fonctionnalités** (6 cards bénéfice-orientées, pas 8 — concentration)
@@ -41,7 +43,7 @@
 9. **Live TV + EPG** (NEUF, fusion de l'ancienne section IPTV + ajout EPG grille)
 10. **Multi-serveur** (existant, mettre à jour pour inclure Jellyfin)
 11. **Métadonnées enrichies** (existant, simplifier)
-12. **Comparatif PlexHubTV vs Plex officiel vs Jellyfin officiel** (REFONDU à 3 colonnes au lieu de 2)
+12. **Comparatif FlexHubTV vs Plex officiel vs Jellyfin officiel** (REFONDU à 3 colonnes au lieu de 2)
 13. **Spécifications techniques** (mettre à jour : Media3 **1.9.0**, Room v64, Kotlin/Compose, OTA self-update)
 14. **Téléchargement** — 2 boutons ABI + checksum SHA256 + alerte sideload (autorisation sources inconnues)
 15. **Soutenir le projet** (NEUF, donation placeholder + remerciements open-source)
@@ -57,15 +59,15 @@
 
 ### 4.2 Hero
 - **H1** : « Plex, Jellyfin et IPTV. Une seule télécommande. »
-- **Sous-titre** : « PlexHubTV unifie vos serveurs Plex et Jellyfin, vos flux Xtream/M3U et votre EPG Live TV dans une interface Compose for TV pensée pour le D-pad. Gratuit, sans pub, sans télémétrie intrusive. »
+- **Sous-titre** : « FlexHubTV unifie vos serveurs Plex et Jellyfin, vos flux Xtream/M3U et votre EPG Live TV dans une interface Compose for TV pensée pour le D-pad. Gratuit, sans pub, sans télémétrie intrusive. »
 - **CTA primaire** : « Télécharger l'APK » → ancre `#telecharger`
 - **CTA secondaire** : « Soutenir le projet » → ancre `#soutenir`
 - **Mini bandeau** : « Compatible Android TV 8.0+ · Bientôt sur Google Play »
 
-### 4.3 Pourquoi PlexHubTV
+### 4.3 Pourquoi FlexHubTV
 Trois courts paragraphes :
 1. **Le constat** : « Aucune app Android TV ne fait à la fois Plex, Jellyfin et IPTV correctement. Les utilisateurs multi-source jonglent entre 3 apps avec 3 historiques séparés. »
-2. **La promesse** : « PlexHubTV unifie ces sources avec une vraie déduplication multi-serveur, une UI Netflix-style pensée pour la télécommande, et un lecteur double moteur (ExoPlayer + MPV) qui ne rend jamais un fichier injouable. »
+2. **La promesse** : « FlexHubTV unifie ces sources avec une vraie déduplication multi-serveur, une UI Netflix-style pensée pour la télécommande, et un lecteur double moteur (ExoPlayer + MPV) qui ne rend jamais un fichier injouable. »
 3. **Le modèle** : « Gratuit, code source en architecture stricte (Clean Architecture multi-module Kotlin), distribué en sideload aujourd'hui, Play Store à venir. Une option de donation premium est prévue pour soutenir le développement. »
 
 ### 4.4 Sources unifiées (4 cards)
@@ -78,7 +80,7 @@ Petit texte sous les cards : « Une vue unifiée fusionne ces sources en bibliot
 
 ### 4.5 Démo vidéo
 Garder la section existante avec le `.webm`. Ajuster la copy :
-- **Title** : « Voyez PlexHubTV en action. »
+- **Title** : « Voyez FlexHubTV en action. »
 - **Sub** : « Quelques secondes pour comprendre la navigation D-pad, le lecteur, le multi-source et le Live TV. »
 
 ### 4.6 Fonctionnalités (6 cards bénéfice-orientées)
@@ -98,8 +100,8 @@ Section dédiée avec 2 boutons :
 - Encart bleu/orange : « Distribution actuellement en sideload. Sur Android TV, allez dans Paramètres → Applications → Sécurité → Autoriser les sources inconnues pour l'installation. Le futur lancement Play Store dispensera de cette étape. »
 
 ### 4.8 Soutenir le projet (NEUF)
-- **Title** : « Soutenir PlexHubTV »
-- **Body** : « PlexHubTV est entièrement gratuit, sans publicité ni télémétrie tierce. Le projet est porté par une seule personne sur du temps personnel. Si l'app vous fait gagner du temps au quotidien, vous pouvez la soutenir financièrement. Une donation premium est en préparation : elle débloquera quelques fonctions confort (à définir avec la communauté) tout en gardant le cœur de l'app gratuit pour tous. »
+- **Title** : « Soutenir FlexHubTV »
+- **Body** : « FlexHubTV est entièrement gratuit, sans publicité ni télémétrie tierce. Le projet est porté par une seule personne sur du temps personnel. Si l'app vous fait gagner du temps au quotidien, vous pouvez la soutenir financièrement. Une donation premium est en préparation : elle débloquera quelques fonctions confort (à définir avec la communauté) tout en gardant le cœur de l'app gratuit pour tous. »
 - **CTA** : « Soutenir (bientôt) » — bouton désactivé visuellement avec libellé « Donation premium en préparation »
 - En dessous : « En attendant, étoiler le repo public et faire connaître l'app à d'autres power users multi-source aide énormément. »
 
@@ -124,9 +126,9 @@ Garder l'existant + ajouter :
 - Logo + claim
 - Liens : GitHub repo public (releases) · Politique de confidentialité (à créer / lier vers `docs/privacy-policy-fr.md` du repo code si déjà publié)
 - Mentions :
-  - « PlexHubTV est un client tiers. Plex est une marque déposée de Plex GmbH. Jellyfin est un logiciel libre sous licence GPLv2. PlexHubTV n'est pas affilié, sponsorisé ou approuvé par Plex GmbH ni par le projet Jellyfin. »
+  - « FlexHubTV est un client tiers. Plex est une marque déposée de Plex GmbH. Jellyfin est un logiciel libre sous licence GPLv2. FlexHubTV n'est pas affilié, sponsorisé ou approuvé par Plex GmbH ni par le projet Jellyfin. »
   - « Construit sur AndroidX Media3 (Apache 2.0), Jetpack Compose, MPV (libmpv), Coil 3, Hilt, Room. »
-  - © 2026 PlexHubTV.
+  - © 2026 FlexHubTV.
 
 ## 5. Charte visuelle (préservée)
 
